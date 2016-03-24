@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="br.com.adem.iconv.ConfiguracaoActivity">
+
+    <TextView
+        android:id="@+id/lblEstados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Estado:" />
+
+    <Spinner
+        android:id="@+id/spEstados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblEstados"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/lblMunicipios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spEstados"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Municipio:"/>
+
+    <Spinner
+        android:id="@+id/spMunicipios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblMunicipios"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/lblNaturezaConvenente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spMunicipios"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Natureza do Convenente:" />
+
+    <CheckBox
+        android:id="@+id/ckNaturezaFederal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblNaturezaConvenente"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:text="Federal" />
+
+    <CheckBox
+        android:id="@+id/ckNaturezaEstadual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ckNaturezaFederal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:text="Estadual"/>
+
+    <CheckBox
+        android:id="@+id/ckNaturezaMunicipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblNaturezaConvenente"
+        android:layout_alignRight="@+id/lblNaturezaConvenente"
+        android:layout_alignEnd="@+id/lblNaturezaConvenente"
+        android:checked="false"
+        android:text="Municipal"/>
+
+    <CheckBox
+        android:id="@+id/ckNaturezaPrivada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ckNaturezaMunicipal"
+        android:layout_alignLeft="@+id/ckNaturezaMunicipal"
+        android:layout_alignStart="@+id/ckNaturezaMunicipal"
+        android:checked="false"
+        android:text="Privada"/>
+
+    <TextView
+        android:id="@+id/lblSituacaoConvenio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ckNaturezaEstadual"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="21dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Situação do Convênio:"/>
+
+    <CheckBox
+        android:id="@+id/ckSituacaoEncerrado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblSituacaoConvenio"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:text="Encerrado"/>
+
+    <CheckBox
+        android:id="@+id/ckSituacaoEmExecucao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblSituacaoConvenio"
+        android:layout_alignLeft="@+id/ckNaturezaPrivada"
+        android:layout_alignStart="@+id/ckNaturezaPrivada"
+        android:checked="false"
+        android:text="Em execução" />
+
+    <Button
+        android:id="@+id/btOkConfiguracao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ckSituacaoEmExecucao"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="OK"
+        android:textAlignment="center"
+        android:onClick="salvarConfiguracao"/>
+</RelativeLayout>
