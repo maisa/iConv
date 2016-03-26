@@ -27,6 +27,16 @@
         android:textAlignment="center"
         android:onClick="abrirTelaConfiguracao" />
 
+    <Button
+        android:id="@+id/btContinuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btConfiguracaoInicial"
+        android:layout_centerHorizontal="true"
+        android:text="Entrar"
+        android:textAlignment="center"
+        android:onClick="abrirTelaListaConvenios"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

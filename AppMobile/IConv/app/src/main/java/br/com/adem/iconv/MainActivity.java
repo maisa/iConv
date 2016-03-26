@@ -10,17 +10,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Toast.makeText(this, "Abrindo Tela Principal.", Toast.LENGTH_LONG).show();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Bundle bundle = new Bundle();
-        bundle.putString("estado", "Amazonas");
-
-        Intent listaConveniosActivity = new Intent(this, ListaConveniosActivity.class);
-
-        startActivity(listaConveniosActivity);
     }
 
     public void abrirTelaConfiguracao(View view) {
@@ -28,5 +19,15 @@ public class MainActivity extends AppCompatActivity {
 
         Intent configuracaoActivity = new Intent(this, ConfiguracaoActivity.class);
         startActivity(configuracaoActivity);
+    }
+
+    public void abrirTelaListaConvenios(View view) {
+        String estado = "Roraima";
+        String municipio = "Boa Vista";
+
+        Intent listaConveniosActivity = new Intent(this, ListaConveniosActivity.class);
+        listaConveniosActivity.putExtra("estado", estado);
+        listaConveniosActivity.putExtra("municipio", municipio);
+        startActivity(listaConveniosActivity);
     }
 }
