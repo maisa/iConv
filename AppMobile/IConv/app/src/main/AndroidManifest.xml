@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ConfiguracaoActivity" />
-        <activity android:name=".ListaConveniosActivity"></activity>
+        <activity android:name=".ListaConveniosActivity" />
+        <activity android:name=".AvaliacaoPassoUmActivity" />
+        <activity android:name=".AvaliacaoPassoDoisActivity"></activity>
     </application>
 
 </manifest>
