@@ -1,19 +1,27 @@
 package br.com.adem.iconv;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import br.com.adem.iconv.model.Convenio;
 
 public class AvaliacaoPassoUmActivity extends AppCompatActivity {
+
+    private Button btAvaliacaoAprovaConvenio;
+    private Button btAvaliacaoNaoAprovaConvenio;
+    private Button btNaoOpinaAvaliacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avaliacao_passo_um);
 
-        Convenio convenio = (Convenio) getIntent().getSerializableExtra("convenio");
+        final Convenio convenio = (Convenio) getIntent().getSerializableExtra("convenio");
         if (convenio != null) {
             TextView txtConvenioTelaAvaliacaoUm = (TextView) findViewById(R.id.txtConvenioTelaAvaliacaoUm);
             TextView txtConcedenteTelaAvaliacaoUm = (TextView) findViewById(R.id.txtConcedenteTelaAvaliacaoUm);
@@ -23,5 +31,37 @@ public class AvaliacaoPassoUmActivity extends AppCompatActivity {
             txtConcedenteTelaAvaliacaoUm.setText(convenio.getConcedente());
             txtConvenenteTelaAvaliacaoUm.setText(convenio.getConvenente());
         }
+
+        // capturando o botao btAvaliacaoAprovaConvenio do XML pela ID.
+        btAvaliacaoAprovaConvenio = (Button) findViewById(R.id.btAvaliacaoAprovaConvenio);
+        // Evento de click do botao btAvaliacaoAprovaConvenio.
+        btAvaliacaoAprovaConvenio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "Convênio Aprovado.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // capturando o botao btAvaliacaoNaoAprovaConvenio do XML pela ID.
+        btAvaliacaoNaoAprovaConvenio = (Button) findViewById(R.id.btAvaliacaoNaoAprovaConvenio);
+        // Evento de click do botao btAvaliacaoNaoAprovaConvenio.
+        btAvaliacaoNaoAprovaConvenio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent avaliacaoPassoDoisActivity = new Intent(v.getContext(), AvaliacaoPassoDoisActivity.class);
+                avaliacaoPassoDoisActivity.putExtra("convenio", convenio);
+                startActivity(avaliacaoPassoDoisActivity);
+            }
+        });
+
+        // capturando o botao btNaoOpinaAvaliacao do XML pela ID.
+        btNaoOpinaAvaliacao = (Button) findViewById(R.id.btNaoOpinaAvaliacao);
+        // Evento de click do botao btNaoOpinaAvaliacao.
+        btNaoOpinaAvaliacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "Não opinou sobre o Convênio.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

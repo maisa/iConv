@@ -55,8 +55,6 @@ public class ListaConveniosActivity extends AppCompatActivity {
         listaConvenios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(view.getContext(), "Avaliando convenio:" + position, Toast.LENGTH_LONG).show();
-
                 Map<String, Object> convenioSelecionado = (Map<String, Object>) parent.getItemAtPosition(position);
                 Convenio convenio = new Convenio();
                 convenio.setConvenio((String) convenioSelecionado.get("convenio"));

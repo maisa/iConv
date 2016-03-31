@@ -174,8 +174,8 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_above="@+id/txtPerguntaAvaliacaoUm"
-        android:layout_alignLeft="@+id/btSimAvaliacaoUm"
-        android:layout_alignStart="@+id/btSimAvaliacaoUm"
+        android:layout_alignLeft="@+id/btAvaliacaoAprovaConvenio"
+        android:layout_alignStart="@+id/btAvaliacaoAprovaConvenio"
         android:background="@drawable/btn_yellow"
         android:text="Prestação de contas aqui" />
 
@@ -184,7 +184,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_above="@+id/btSimAvaliacaoUm"
+        android:layout_above="@+id/btAvaliacaoAprovaConvenio"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -192,10 +192,10 @@
         android:text="Você aprova este convênio?"/>
 
     <Button
-        android:id="@+id/btSimAvaliacaoUm"
+        android:id="@+id/btAvaliacaoAprovaConvenio"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/btNaoOpinaAvaliacaoUm"
+        android:layout_above="@+id/btNaoOpinaAvaliacao"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
@@ -204,10 +204,10 @@
         android:text="Sim"/>
 
     <Button
-        android:id="@+id/btNaoAvaliacaoUm"
+        android:id="@+id/btAvaliacaoNaoAprovaConvenio"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_alignTop="@+id/btSimAvaliacaoUm"
+        android:layout_alignTop="@+id/btAvaliacaoAprovaConvenio"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
@@ -215,7 +215,7 @@
         android:text="Não"/>
 
     <Button
-        android:id="@+id/btNaoOpinaAvaliacaoUm"
+        android:id="@+id/btNaoOpinaAvaliacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
