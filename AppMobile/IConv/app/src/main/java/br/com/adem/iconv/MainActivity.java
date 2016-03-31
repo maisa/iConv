@@ -15,8 +15,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abrirTelaConfiguracao(View view) {
-        Toast.makeText(this, "Carregando as preferências.", Toast.LENGTH_LONG).show();
-
         Intent configuracaoActivity = new Intent(this, ConfiguracaoActivity.class);
         startActivity(configuracaoActivity);
     }
