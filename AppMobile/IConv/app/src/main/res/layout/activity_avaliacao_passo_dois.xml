@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/textView1"
-        android:background="#e8e8e8"
         android:contextClickable="false">
 
         <TextView
@@ -32,7 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:text="Convênio No:" />
+
         <TextView
             android:id="@+id/txtConvenioTelaAvaliacaoDois"
             android:layout_width="wrap_content"
@@ -40,7 +41,9 @@
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/lblConvenioTelaAvaliacaoDois"
             android:layout_toEndOf="@+id/lblConvenioTelaAvaliacaoDois"
-            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="_" />
 
         <TextView
             android:id="@+id/lblConcedenteTelaAvaliacaoDois"
@@ -50,6 +53,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:text="Concedente:" />
 
         <TextView
@@ -59,7 +63,9 @@
             android:layout_below="@+id/txtConvenioTelaAvaliacaoDois"
             android:layout_toRightOf="@+id/lblConcedenteTelaAvaliacaoDois"
             android:layout_toEndOf="@+id/lblConcedenteTelaAvaliacaoDois"
-            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="_" />
 
         <TextView
             android:id="@+id/lblConvenenteTelaAvaliacaoDois"
@@ -69,6 +75,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:text="Convenente:" />
 
         <TextView
@@ -78,84 +85,106 @@
             android:layout_below="@+id/txtConcedenteTelaAvaliacaoDois"
             android:layout_toRightOf="@+id/lblConvenenteTelaAvaliacaoDois"
             android:layout_toEndOf="@+id/lblConvenenteTelaAvaliacaoDois"
-            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="_" />
 
         <TextView
             android:id="@+id/lblValorTotalTelaAvaliacaoDois"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/lblConvenenteTelaAvaliacaoDois"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="Valor Total:" />
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="Valor Total:"/>
 
         <TextView
             android:id="@+id/txtValorTotalTelaAvaliacaoDois"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtConvenenteTelaAvaliacaoDois"
-            android:layout_toRightOf="@+id/lblValorTotalTelaAvaliacaoDois"
-            android:layout_toEndOf="@+id/lblValorTotalTelaAvaliacaoDois"
-            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+            android:layout_below="@+id/lblValorTotalTelaAvaliacaoDois"
+            android:layout_alignLeft="@+id/lblValorTotalTelaAvaliacaoDois"
+            android:layout_alignStart="@+id/lblValorTotalTelaAvaliacaoDois"
+            android:text="_"  />
 
         <TextView
             android:id="@+id/lblValorRepassadoTelaAvaliacaoDois"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/lblValorTotalTelaAvaliacaoDois"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="Valor Repassado:" />
+            android:layout_above="@+id/txtValorTotalTelaAvaliacaoDois"
+            android:layout_toRightOf="@+id/lblValorTotalTelaAvaliacaoDois"
+            android:layout_toEndOf="@+id/lblValorTotalTelaAvaliacaoDois"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="Valor Repassado:"/>
 
         <TextView
             android:id="@+id/txtValorRepassadoTelaAvaliacaoDois"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtValorTotalTelaAvaliacaoDois"
-            android:layout_toRightOf="@+id/lblValorRepassadoTelaAvaliacaoDois"
-            android:layout_toEndOf="@+id/lblValorRepassadoTelaAvaliacaoDois"
-            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+            android:layout_below="@+id/lblValorRepassadoTelaAvaliacaoDois"
+            android:layout_alignLeft="@+id/lblValorRepassadoTelaAvaliacaoDois"
+            android:layout_alignStart="@+id/lblValorRepassadoTelaAvaliacaoDois"
+            android:text="_"  />
 
         <TextView
             android:id="@+id/lblValorARepassarTelaAvaliacaoDois"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/lblValorRepassadoTelaAvaliacaoDois"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_alignTop="@+id/lblValorRepassadoTelaAvaliacaoDois"
+            android:layout_toRightOf="@+id/lblValorRepassadoTelaAvaliacaoDois"
+            android:layout_toEndOf="@+id/lblValorRepassadoTelaAvaliacaoDois"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:text="A Repassar:" />
 
         <TextView
             android:id="@+id/txtValorARepassarTelaAvaliacaoDois"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtValorRepassadoTelaAvaliacaoDois"
-            android:layout_toRightOf="@+id/lblValorARepassarTelaAvaliacaoDois"
-            android:layout_toEndOf="@+id/lblValorARepassarTelaAvaliacaoDois"
-            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+            android:layout_below="@+id/lblValorARepassarTelaAvaliacaoDois"
+            android:layout_alignLeft="@+id/lblValorARepassarTelaAvaliacaoDois"
+            android:layout_alignStart="@+id/lblValorARepassarTelaAvaliacaoDois"
+            android:text="_" />
 
+        <TextView
+            android:id="@+id/lblObjetoTelaAvaliacaoDois"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtValorTotalTelaAvaliacaoDois"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="Objeto:" />
+
+        <TextView
+            android:id="@+id/txtObjetoResumido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtValorRepassadoTelaAvaliacaoDois"
+            android:layout_toRightOf="@+id/lblObjetoTelaAvaliacaoDois"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="_" />
     </RelativeLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btPrestacaoContas"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_below="@+id/relativeLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center"
-        android:text="Prestação de contas ao cidadão"
-        android:background="#cecece" />
+        android:background="@drawable/btn_yellow"
+        android:text="Prestação de contas aqui" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="A prestação de contas é suspeita"
         android:id="@+id/checkBox"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/btPrestacaoContas"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -201,4 +230,13 @@
         android:layout_alignParentStart="true"
         android:checked="false" />
 
+    <Button
+        android:id="@+id/btConfirmaAvalicao"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:background="@drawable/btn_green"
+        android:text="Confirma" />
 </RelativeLayout>

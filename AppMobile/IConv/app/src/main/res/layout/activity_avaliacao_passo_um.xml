@@ -163,11 +163,11 @@
             android:layout_toRightOf="@+id/lblObjetoTelaAvaliacaoUm"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="Objeto do Convênio.... Objeto do Convênio.... Objeto do Convênio.... Objeto do Convênio.... Objeto do Convênio.... Objeto do Convênio.... Objeto do Convênio.... Objeto do Convênio.... Objeto do Convênio.... Objeto do Convênio.... Objeto do Convênio.... Objeto do Convênio...." />
+            android:text="_" />
     </RelativeLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btPrestacaoContas"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
