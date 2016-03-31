@@ -1,20 +1,23 @@
 package br.com.adem.iconv;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ListaConveniosActivity extends AppCompatActivity {
+import br.com.adem.iconv.model.Convenio;
 
-    private TextView lblEstadoTelaListaConvenios;
-    private TextView lblMunicipioTelaListaConvenios;
+public class ListaConveniosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +27,12 @@ public class ListaConveniosActivity extends AppCompatActivity {
         String estado = getIntent().getStringExtra("estado");
         String municipio = getIntent().getStringExtra("municipio");
 
-        lblEstadoTelaListaConvenios = (TextView) findViewById(R.id.lblEstadoTelaListaConvenios);
+        TextView lblEstadoTelaListaConvenios = (TextView) findViewById(R.id.lblEstadoTelaListaConvenios);
         StringBuilder textoLabelEstado = new StringBuilder(lblEstadoTelaListaConvenios.getText());
         textoLabelEstado.append(estado);
         lblEstadoTelaListaConvenios.setText(textoLabelEstado.toString());
 
-        lblMunicipioTelaListaConvenios = (TextView) findViewById(R.id.lblMunicipioTelaListaConvenios);
+        TextView lblMunicipioTelaListaConvenios = (TextView) findViewById(R.id.lblMunicipioTelaListaConvenios);
         StringBuilder textoLabelMunicipio = new StringBuilder(lblMunicipioTelaListaConvenios.getText());
         textoLabelMunicipio.append(municipio);
         lblMunicipioTelaListaConvenios.setText(textoLabelMunicipio.toString());
@@ -39,15 +42,33 @@ public class ListaConveniosActivity extends AppCompatActivity {
         convenios.add("Convenio 2");
         convenios.add("Convenio 3");
         convenios.add("Convenio 4");
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, convenios);
+        ArrayAdapter aConvenios = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, convenios);
         ListView listaConvenios = (ListView) findViewById(R.id.listViewListaConvenios);
-        listaConvenios.setAdapter(adapter);*/
+        listaConvenios.setAdapter(aConvenios);*/
 
         String[] de = {"convenio", "concedente", "convenente", "imagem"};
         int[] para = {R.id.txtConvenioListaConvenios, R.id.txtConcedenteListaConvenios, R.id.txtConvenenteListaConvenios, R.id.imgStatusListaConvenios};
-        SimpleAdapter adapter = new SimpleAdapter(this, listarConvenios(), R.layout.layout_lista_convenios, de, para);
-        ListView listaConvenios = (ListView) findViewById(R.id.listViewListaConvenios);
-        listaConvenios.setAdapter(adapter);
+        final SimpleAdapter aConvenios = new SimpleAdapter(this, listarConvenios(), R.layout.layout_lista_convenios, de, para);
+        final ListView listaConvenios = (ListView) findViewById(R.id.listViewListaConvenios);
+        listaConvenios.setAdapter(aConvenios);
+
+        listaConvenios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(view.getContext(), "Avaliando convenio:" + position, Toast.LENGTH_LONG).show();
+
+                Map<String, Object> convenioSelecionado = (Map<String, Object>) parent.getItemAtPosition(position);
+                Convenio convenio = new Convenio();
+                convenio.setConvenio((String) convenioSelecionado.get("convenio"));
+                convenio.setConcedente((String) convenioSelecionado.get("concedente"));
+                convenio.setConvenente((String) convenioSelecionado.get("convenente"));
+
+                // Chamar a Activity de Avaliacao Passando o Convenio Selecionado.
+                Intent avalicaoPassoUmActivity = new Intent(view.getContext(), AvaliacaoPassoUmActivity.class);
+                avalicaoPassoUmActivity.putExtra("convenio", convenio);
+                startActivity(avalicaoPassoUmActivity);
+            }
+        });
     }
 
     private List<Map<String, Object>> listarConvenios() {
@@ -63,7 +84,7 @@ public class ListaConveniosActivity extends AppCompatActivity {
         Map<String, Object> item2 = new HashMap<>();
         item2.put("convenio", "Convenio 2");
         item2.put("concedente", "Concedente 2");
-        item2.put("convenente", "Convenente 3");
+        item2.put("convenente", "Convenente 2");
         item2.put("imagem", R.mipmap.ic_launcher);
         listaConvenios.add(item2);
 
