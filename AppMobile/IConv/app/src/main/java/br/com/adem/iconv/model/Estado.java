@@ -1,9 +1,11 @@
 package br.com.adem.iconv.model;
 
+import java.io.Serializable;
+
 /**
  * Created by eduardo on 28/03/2016.
  */
-public class Estado implements Comparable<Estado> {
+public class Estado implements Comparable<Estado>, Serializable {
     private Integer codigo;
     private String unidadeFederativa;
     private String sigla;
