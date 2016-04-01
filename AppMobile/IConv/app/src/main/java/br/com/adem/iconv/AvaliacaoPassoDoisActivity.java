@@ -21,15 +21,6 @@ public class AvaliacaoPassoDoisActivity extends AppCompatActivity {
         setContentView(R.layout.activity_avaliacao_passo_dois);
 
         convenioSelecionado = (Convenio) getIntent().getSerializableExtra("convenio");
-        if (convenioSelecionado != null) {
-            TextView txtConvenioTelaAvaliacaoDois = (TextView) findViewById(R.id.txtConvenioTelaAvaliacaoDois);
-            TextView txtConcedenteTelaAvaliacaoDois = (TextView) findViewById(R.id.txtConcedenteTelaAvaliacaoDois);
-            TextView txtConvenenteTelaAvaliacaoDois = (TextView) findViewById(R.id.txtConvenenteTelaAvaliacaoDois);
-
-            txtConvenioTelaAvaliacaoDois.setText(convenioSelecionado.getConvenio());
-            txtConcedenteTelaAvaliacaoDois.setText(convenioSelecionado.getConcedente());
-            txtConvenenteTelaAvaliacaoDois.setText(convenioSelecionado.getConvenente());
-        }
 
         // capturando o botao btConfirmaAvalicao do XML pela ID.
         btConfirmaAvalicao = (Button) findViewById(R.id.btConfirmaAvalicao);
@@ -42,9 +33,9 @@ public class AvaliacaoPassoDoisActivity extends AppCompatActivity {
         });
     }
 
-    public void abrirTelaPrestacaoContas(View view) {
-        Intent prestacaoContasActivity = new Intent(this, PrestacaoContasActivity.class);
-        prestacaoContasActivity.putExtra("convenio", convenioSelecionado);
-        startActivity(prestacaoContasActivity);
+    public void voltarTelaAvaliacaoPassoUm(View view) {
+        Intent voltarTelaActivity = new Intent(view.getContext(), AvaliacaoPassoUmActivity.class);
+        voltarTelaActivity.putExtra("convenio", convenioSelecionado);
+        startActivity(voltarTelaActivity);
     }
 }

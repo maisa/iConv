@@ -4,238 +4,95 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.com.adem.iconv.AvaliacaoPassoDoisActivity">
+
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:id="@+id/txtMotivoNaoAprovaConvenio"
+        android:background="@drawable/btn_yellow"
+        android:text="Não aprovo o convênio porque:"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:background="#d5d2d2"
-        android:text="DADOS DO CONVÊNIO" />
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/textView1"
-        android:contextClickable="false">
-
-        <TextView
-            android:id="@+id/lblConvenioTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="Convênio No:" />
-
-        <TextView
-            android:id="@+id/txtConvenioTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/lblConvenioTelaAvaliacaoDois"
-            android:layout_toEndOf="@+id/lblConvenioTelaAvaliacaoDois"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="_" />
-
-        <TextView
-            android:id="@+id/lblConcedenteTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lblConvenioTelaAvaliacaoDois"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="Concedente:" />
-
-        <TextView
-            android:id="@+id/txtConcedenteTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtConvenioTelaAvaliacaoDois"
-            android:layout_toRightOf="@+id/lblConcedenteTelaAvaliacaoDois"
-            android:layout_toEndOf="@+id/lblConcedenteTelaAvaliacaoDois"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="_" />
-
-        <TextView
-            android:id="@+id/lblConvenenteTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lblConcedenteTelaAvaliacaoDois"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="Convenente:" />
-
-        <TextView
-            android:id="@+id/txtConvenenteTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtConcedenteTelaAvaliacaoDois"
-            android:layout_toRightOf="@+id/lblConvenenteTelaAvaliacaoDois"
-            android:layout_toEndOf="@+id/lblConvenenteTelaAvaliacaoDois"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="_" />
-
-        <TextView
-            android:id="@+id/lblValorTotalTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lblConvenenteTelaAvaliacaoDois"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="Valor Total:"/>
-
-        <TextView
-            android:id="@+id/txtValorTotalTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lblValorTotalTelaAvaliacaoDois"
-            android:layout_alignLeft="@+id/lblValorTotalTelaAvaliacaoDois"
-            android:layout_alignStart="@+id/lblValorTotalTelaAvaliacaoDois"
-            android:text="_"  />
-
-        <TextView
-            android:id="@+id/lblValorRepassadoTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/txtValorTotalTelaAvaliacaoDois"
-            android:layout_toRightOf="@+id/lblValorTotalTelaAvaliacaoDois"
-            android:layout_toEndOf="@+id/lblValorTotalTelaAvaliacaoDois"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="Valor Repassado:"/>
-
-        <TextView
-            android:id="@+id/txtValorRepassadoTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lblValorRepassadoTelaAvaliacaoDois"
-            android:layout_alignLeft="@+id/lblValorRepassadoTelaAvaliacaoDois"
-            android:layout_alignStart="@+id/lblValorRepassadoTelaAvaliacaoDois"
-            android:text="_"  />
-
-        <TextView
-            android:id="@+id/lblValorARepassarTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/lblValorRepassadoTelaAvaliacaoDois"
-            android:layout_toRightOf="@+id/lblValorRepassadoTelaAvaliacaoDois"
-            android:layout_toEndOf="@+id/lblValorRepassadoTelaAvaliacaoDois"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="A Repassar:" />
-
-        <TextView
-            android:id="@+id/txtValorARepassarTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lblValorARepassarTelaAvaliacaoDois"
-            android:layout_alignLeft="@+id/lblValorARepassarTelaAvaliacaoDois"
-            android:layout_alignStart="@+id/lblValorARepassarTelaAvaliacaoDois"
-            android:text="_" />
-
-        <TextView
-            android:id="@+id/lblObjetoTelaAvaliacaoDois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtValorTotalTelaAvaliacaoDois"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="Objeto:" />
-
-        <TextView
-            android:id="@+id/txtObjetoResumido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtValorRepassadoTelaAvaliacaoDois"
-            android:layout_toRightOf="@+id/lblObjetoTelaAvaliacaoDois"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="_" />
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/btPrestacaoContas2"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_below="@+id/relativeLayout"
-        android:background="@drawable/btn_yellow"
-        android:text="Prestação de contas aqui"
-        android:onClick="abrirTelaPrestacaoContas"/>
+        android:layout_centerHorizontal="true"/>
 
     <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="A prestação de contas é suspeita"
         android:id="@+id/checkBox"
+        android:text="A prestação de contas é suspeita."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:checked="false"
-        android:layout_above="@+id/checkBox2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/txtMotivoNaoAprovaConvenio" />
 
     <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Os valores são suspeitos"
         android:id="@+id/checkBox2"
+        android:text="Os valores são suspeitos."
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:checked="false"
-        android:layout_above="@+id/checkBox3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/checkBox"/>
 
     <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="O convenente é suspeito"
         android:id="@+id/checkBox3"
+        android:text="O convenente é suspeito."
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:checked="false"
-        android:layout_above="@+id/checkBox4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/checkBox2" />
 
     <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Os fornecedores são suspeitos"
         android:id="@+id/checkBox4"
+        android:text="Os fornecedores são suspeitos."
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:checked="false"
-        android:layout_above="@+id/checkBox5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/checkBox3" />
 
     <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="O objetivo do convênio não foi alcançado"
         android:id="@+id/checkBox5"
+        android:text="O objetivo do convênio não foi alcançado."
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:checked="false"
-        android:layout_above="@+id/btConfirmaAvalicao"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/checkBox4"/>
+
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:text="Outros motivos."
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:layout_below="@+id/checkBox5"/>
+
 
     <Button
         android:id="@+id/btConfirmaAvalicao"
+        android:text="Confirma"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:background="@drawable/btn_green"
-        android:text="Confirma" />
+        android:layout_below="@+id/checkBox6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+    <Button
+        android:id="@+id/btCancelaAvaliacao"
+        android:text="Cancela"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_gray"
+        android:layout_alignTop="@+id/btConfirmaAvalicao"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:onClick="voltarTelaAvaliacaoPassoUm"/>
 
 </RelativeLayout>
