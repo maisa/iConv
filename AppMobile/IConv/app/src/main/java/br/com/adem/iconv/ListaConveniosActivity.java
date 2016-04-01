@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Map;
 
 import br.com.adem.iconv.model.Convenio;
+import br.com.adem.iconv.model.Estado;
+import br.com.adem.iconv.model.Municipio;
 
 public class ListaConveniosActivity extends AppCompatActivity {
 
@@ -24,17 +26,17 @@ public class ListaConveniosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_convenios);
 
-        String estado = getIntent().getStringExtra("estado");
-        String municipio = getIntent().getStringExtra("municipio");
+        Estado estado = (Estado) getIntent().getSerializableExtra("estado");
+        Municipio municipio = (Municipio) getIntent().getSerializableExtra("municipio");
 
         TextView lblEstadoTelaListaConvenios = (TextView) findViewById(R.id.lblEstadoTelaListaConvenios);
         StringBuilder textoLabelEstado = new StringBuilder(lblEstadoTelaListaConvenios.getText());
-        textoLabelEstado.append(estado);
+        textoLabelEstado.append(estado.getUnidadeFederativa());
         lblEstadoTelaListaConvenios.setText(textoLabelEstado.toString());
 
         TextView lblMunicipioTelaListaConvenios = (TextView) findViewById(R.id.lblMunicipioTelaListaConvenios);
         StringBuilder textoLabelMunicipio = new StringBuilder(lblMunicipioTelaListaConvenios.getText());
-        textoLabelMunicipio.append(municipio);
+        textoLabelMunicipio.append(municipio.getNomeMunicipio());
         lblMunicipioTelaListaConvenios.setText(textoLabelMunicipio.toString());
 
         /*List<String> convenios = new ArrayList<String>();
