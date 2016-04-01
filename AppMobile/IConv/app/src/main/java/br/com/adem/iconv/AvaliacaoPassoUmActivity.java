@@ -15,21 +15,22 @@ public class AvaliacaoPassoUmActivity extends AppCompatActivity {
     private Button btAvaliacaoAprovaConvenio;
     private Button btAvaliacaoNaoAprovaConvenio;
     private Button btNaoOpinaAvaliacao;
+    private Convenio convenioSelecionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avaliacao_passo_um);
 
-        final Convenio convenio = (Convenio) getIntent().getSerializableExtra("convenio");
-        if (convenio != null) {
+        convenioSelecionado = (Convenio) getIntent().getSerializableExtra("convenio");
+        if (convenioSelecionado != null) {
             TextView txtConvenioTelaAvaliacaoUm = (TextView) findViewById(R.id.txtConvenioTelaAvaliacaoUm);
             TextView txtConcedenteTelaAvaliacaoUm = (TextView) findViewById(R.id.txtConcedenteTelaAvaliacaoUm);
             TextView txtConvenenteTelaAvaliacaoUm = (TextView) findViewById(R.id.txtConvenenteTelaAvaliacaoUm);
 
-            txtConvenioTelaAvaliacaoUm.setText(convenio.getConvenio());
-            txtConcedenteTelaAvaliacaoUm.setText(convenio.getConcedente());
-            txtConvenenteTelaAvaliacaoUm.setText(convenio.getConvenente());
+            txtConvenioTelaAvaliacaoUm.setText(convenioSelecionado.getConvenio());
+            txtConcedenteTelaAvaliacaoUm.setText(convenioSelecionado.getConcedente());
+            txtConvenenteTelaAvaliacaoUm.setText(convenioSelecionado.getConvenente());
         }
 
         // capturando o botao btAvaliacaoAprovaConvenio do XML pela ID.
@@ -49,7 +50,7 @@ public class AvaliacaoPassoUmActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent avaliacaoPassoDoisActivity = new Intent(v.getContext(), AvaliacaoPassoDoisActivity.class);
-                avaliacaoPassoDoisActivity.putExtra("convenio", convenio);
+                avaliacaoPassoDoisActivity.putExtra("convenio", convenioSelecionado);
                 startActivity(avaliacaoPassoDoisActivity);
             }
         });
@@ -63,5 +64,11 @@ public class AvaliacaoPassoUmActivity extends AppCompatActivity {
                 Toast.makeText(v.getContext(), "Não opinou sobre o Convênio.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void abrirTelaPrestacaoContas(View view) {
+        Intent prestacaoContasActivity = new Intent(view.getContext(), PrestacaoContasActivity.class);
+        prestacaoContasActivity.putExtra("convenio", convenioSelecionado);
+        startActivity(prestacaoContasActivity);
     }
 }

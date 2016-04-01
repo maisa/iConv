@@ -177,7 +177,8 @@
         android:layout_alignLeft="@+id/btAvaliacaoAprovaConvenio"
         android:layout_alignStart="@+id/btAvaliacaoAprovaConvenio"
         android:background="@drawable/btn_yellow"
-        android:text="Prestação de contas aqui" />
+        android:text="Prestação de contas aqui"
+        android:onClick="abrirTelaPrestacaoContas"/>
 
     <TextView
         android:id="@+id/txtPerguntaAvaliacaoUm"

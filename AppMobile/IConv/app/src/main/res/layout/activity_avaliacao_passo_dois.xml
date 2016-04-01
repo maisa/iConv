@@ -175,7 +175,8 @@
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_below="@+id/relativeLayout"
         android:background="@drawable/btn_yellow"
-        android:text="Prestação de contas aqui" />
+        android:text="Prestação de contas aqui"
+        android:onClick="abrirTelaPrestacaoContas"/>
 
     <CheckBox
         android:layout_width="wrap_content"

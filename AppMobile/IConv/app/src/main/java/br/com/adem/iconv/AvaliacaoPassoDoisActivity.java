@@ -1,5 +1,6 @@
 package br.com.adem.iconv;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,21 +13,22 @@ import br.com.adem.iconv.model.Convenio;
 public class AvaliacaoPassoDoisActivity extends AppCompatActivity {
 
     private Button btConfirmaAvalicao;
+    private Convenio convenioSelecionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avaliacao_passo_dois);
 
-        final Convenio convenio = (Convenio) getIntent().getSerializableExtra("convenio");
-        if (convenio != null) {
+        convenioSelecionado = (Convenio) getIntent().getSerializableExtra("convenio");
+        if (convenioSelecionado != null) {
             TextView txtConvenioTelaAvaliacaoDois = (TextView) findViewById(R.id.txtConvenioTelaAvaliacaoDois);
             TextView txtConcedenteTelaAvaliacaoDois = (TextView) findViewById(R.id.txtConcedenteTelaAvaliacaoDois);
             TextView txtConvenenteTelaAvaliacaoDois = (TextView) findViewById(R.id.txtConvenenteTelaAvaliacaoDois);
 
-            txtConvenioTelaAvaliacaoDois.setText(convenio.getConvenio());
-            txtConcedenteTelaAvaliacaoDois.setText(convenio.getConcedente());
-            txtConvenenteTelaAvaliacaoDois.setText(convenio.getConvenente());
+            txtConvenioTelaAvaliacaoDois.setText(convenioSelecionado.getConvenio());
+            txtConcedenteTelaAvaliacaoDois.setText(convenioSelecionado.getConcedente());
+            txtConvenenteTelaAvaliacaoDois.setText(convenioSelecionado.getConvenente());
         }
 
         // capturando o botao btConfirmaAvalicao do XML pela ID.
@@ -38,5 +40,11 @@ public class AvaliacaoPassoDoisActivity extends AppCompatActivity {
                 Toast.makeText(v.getContext(), "Avaliação Confirmada!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void abrirTelaPrestacaoContas(View view) {
+        Intent prestacaoContasActivity = new Intent(this, PrestacaoContasActivity.class);
+        prestacaoContasActivity.putExtra("convenio", convenioSelecionado);
+        startActivity(prestacaoContasActivity);
     }
 }
