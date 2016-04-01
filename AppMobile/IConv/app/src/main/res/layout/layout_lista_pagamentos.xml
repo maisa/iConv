@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/lblDataPagamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data:" />
+
+    <TextView
+        android:id="@+id/txtDataPagamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/lblDataPagamento"
+        android:layout_toEndOf="@+id/lblDataPagamento"/>
+
+    <TextView
+        android:id="@+id/lblValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblDataPagamento"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Valor: R$" />
+
+    <TextView
+        android:id="@+id/txtValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtDataPagamento"
+        android:layout_toRightOf="@+id/lblValor"
+        android:layout_toEndOf="@+id/lblValor"/>
+
+    <TextView
+        android:id="@+id/lblFornecedor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblValor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Fornecedor:" />
+
+    <TextView
+        android:id="@+id/txtFornecedor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtValor"
+        android:layout_toRightOf="@+id/lblFornecedor"
+        android:layout_toEndOf="@+id/lblFornecedor"/>
+
+    <TextView
+        android:id="@+id/lblCnpj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblFornecedor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="CNPJ:" />
+
+    <TextView
+        android:id="@+id/txtCnpj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtFornecedor"
+        android:layout_toRightOf="@+id/lblCnpj"
+        android:layout_toEndOf="@+id/lblCnpj"/>
+
+    <TextView
+        android:id="@+id/lblNotaFiscal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblCnpj"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Nota Fiscal:" />
+
+    <TextView
+        android:id="@+id/txtNotaFiscal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCnpj"
+        android:layout_toRightOf="@+id/lblNotaFiscal"
+        android:layout_toEndOf="@+id/lblNotaFiscal"/>
+
+</RelativeLayout>
