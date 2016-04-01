@@ -1,5 +1,6 @@
 package br.com.adem.iconv;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -64,9 +65,16 @@ public class ConfiguracaoActivity extends AppCompatActivity {
         btOkConfiguracao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Estado selecionado (getSelectedItemPosition):" + spEstado.getSelectedItemPosition(), Toast.LENGTH_SHORT).show();
-                //Toast.makeText(v.getContext(), "Estado selecionado (getSelectedItemId):" + spEstado.getSelectedItemId(), Toast.LENGTH_SHORT).show();
-                //Toast.makeText(v.getContext(), "Estado selecionado (getSelectedItem):" + spEstado.getSelectedItem(), Toast.LENGTH_SHORT).show();
+                Estado estadoSalvo = aEstados.getItem(spEstado.getSelectedItemPosition());
+                Municipio municipioSalvo = aMunicipios.getItem(spMunicipios.getSelectedItemPosition());
+
+                /*Toast.makeText(v.getContext(), "Estado configurado:" + estadoSalvo.getUnidadeFederativa(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "Municipio configurado:" + estadoSalvo.getUnidadeFederativa(), Toast.LENGTH_SHORT).show();*/
+
+                Intent mainActivity = new Intent(v.getContext(), MainActivity.class);
+                mainActivity.putExtra("estado", estadoSalvo);
+                mainActivity.putExtra("municipio", municipioSalvo);
+                startActivity(mainActivity);
             }
         });
     }
