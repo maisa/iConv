@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
+import model.Usuario;
 import util.BdUtil;
 
 public class UsuarioRepository {
@@ -20,7 +22,7 @@ public class UsuarioRepository {
 		if (dbConnection != null) {
 			try {
 				PreparedStatement prepStatement = dbConnection
-						.prepareStatement("insert into usuario(id, senha, nome, email, perfil) values (?, ?, ?, ?, ?, ?)");
+						.prepareStatement("insert into usuario(id, senha, nome, email, perfil) values (?, ?, ?, ?, ?)");
 				prepStatement.setString(1, userName);
 				prepStatement.setString(2, password);
 				prepStatement.setString(3, firstName);				
@@ -57,18 +59,24 @@ public class UsuarioRepository {
 		return false;
 	}
 
-	public boolean findByLogin(String userName, String password) {
+	public Usuario findByLogin(String userName, String password) {
+		Usuario usuario = new Usuario();
 		if (dbConnection != null) {
-			try {
+			try {				
 				PreparedStatement prepStatement = dbConnection
-						.prepareStatement("select senha from usuario where id = ?");
+						.prepareStatement("select * from usuario where id = ?");
 				prepStatement.setString(1, userName);
 
 				ResultSet result = prepStatement.executeQuery();
 				if (result != null) {
 					while (result.next()) {
-						if (result.getString(1).equals(password)) {
-							return true;
+						if (result.getString("senha").equals(password)) {
+							usuario.setId(result.getString("id"));
+							usuario.setNome(result.getString("nome"));
+							usuario.setEmail(result.getString("email"));
+							usuario.setPerfil(result.getString("perfil"));
+							usuario.setSenha(result.getString("senha"));
+							return usuario;
 						}
 					}
 				}
@@ -76,7 +84,7 @@ public class UsuarioRepository {
 				e.printStackTrace();
 			}
 		}
-		return false;
+		return usuario;
 	}
 
 }

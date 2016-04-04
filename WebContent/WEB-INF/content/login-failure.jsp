@@ -29,11 +29,8 @@
 		</div>
 
 		<div class="navbar-collapse collapse navbar-responsive-collapse">
-			<form class="navbar-form navbar-right">
-				<input type="text" class="form-control" placeholder="Search">
-			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/iConv">Sobre</a></li>
+				<li><a href="">Sobre</a></li>
 				<li><a href="signup-input">Cadastre-se</a></li>
 				<li class="active"><a href="login-input">Acesse</a></li>
 			</ul>

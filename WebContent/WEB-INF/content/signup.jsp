@@ -59,7 +59,7 @@ input[type="text"],input[type="password"] {
 		<div class="navbar-collapse collapse navbar-responsive-collapse">
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/iConv">Sobre</a></li>
+				<li><a href=" ">Sobre</a></li>
 				<li class="active"><a href="signup-input">Casdastre-se</a></li>
 				<li><a href="login-input">Acesse</a></li>
 				
@@ -90,37 +90,18 @@ input[type="text"],input[type="password"] {
 
 								<s:textfield label="E-mail" name="email"
 									cssClass="col-lg-11" placeholder="E-mail" />
+						
+									
+								<s:select label="Perfil" cssClass="col-lg-11" 
+									list="#{'1':'Convenente','2':'Concedente'}" name="perfil">
+									
+									
+								</s:select>
+									
 
 								<div class="col-lg-9 col-lg-offset-3">
-									<s:submit cssClass="btn btn-default" value="Cancel" />
-									<s:submit cssClass="btn btn-primary" value="Cadastrar"
-										data-toggle="modal" data-target="#themodal" />
-									<div id="themodal" class="modal fade col-lg-9 col-lg-offset-3"
-										data-backdrop="static">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal"
-														aria-hidden="true">&times;</button>
-													<h3>Signup Form Submission</h3>
-												</div>
-												<div class="modal-body">
-													<p>Are you sure you want to do this?</p>
-													<div class="progress progress-striped active">
-														<div id="doitprogress" class="progress-bar"></div>
-													</div>
-												</div>
-												<div class="modal-footer">
-													<sj:submit cssClass="btn btn-default" value="Close"
-														data-dismiss="modal" />
-													<sj:submit cssClass="btn btn-primary" value="Yes"
-														id="yesbutton" formId="myForm"
-														data-loading-text="Saving.."
-														data-complete-text="Submit Complete!" />
-												</div>
-											</div>
-										</div>
-									</div>
+									<s:submit cssClass="btn btn-default" value="Cancelar" />
+									<s:submit cssClass="btn btn-primary" value="Cadastrar"/>
 								</div>
 								<s:hidden name="pageName" value="signup" />
 							</fieldset>
