@@ -27,10 +27,18 @@ public class AvaliacaoPassoUmActivity extends AppCompatActivity {
             TextView txtConvenioTelaAvaliacaoUm = (TextView) findViewById(R.id.txtConvenioTelaAvaliacaoUm);
             TextView txtConcedenteTelaAvaliacaoUm = (TextView) findViewById(R.id.txtConcedenteTelaAvaliacaoUm);
             TextView txtConvenenteTelaAvaliacaoUm = (TextView) findViewById(R.id.txtConvenenteTelaAvaliacaoUm);
+            TextView txtValorTotalTelaAvaliacaoUm = (TextView) findViewById(R.id.txtValorTotalTelaAvaliacaoUm);
+            TextView txtValorRepassadoTelaAvaliacaoUm = (TextView) findViewById(R.id.txtValorRepassadoTelaAvaliacaoUm);
+            TextView txtValorARepassarTelaAvaliacaoUm = (TextView) findViewById(R.id.txtValorARepassarTelaAvaliacaoUm);
+            TextView txtObjetoResumidoTelaAvaliacaoUm = (TextView) findViewById(R.id.txtObjetoResumidoTelaAvaliacaoUm);
 
             txtConvenioTelaAvaliacaoUm.setText(convenioSelecionado.getConvenio());
             txtConcedenteTelaAvaliacaoUm.setText(convenioSelecionado.getConcedente());
             txtConvenenteTelaAvaliacaoUm.setText(convenioSelecionado.getConvenente());
+            txtValorTotalTelaAvaliacaoUm.setText(convenioSelecionado.getValorTotal());
+            txtValorRepassadoTelaAvaliacaoUm.setText(convenioSelecionado.getValorRepassado());
+            txtValorARepassarTelaAvaliacaoUm.setText(convenioSelecionado.getValorRestante());
+            txtObjetoResumidoTelaAvaliacaoUm.setText(convenioSelecionado.getObjeto());
         }
 
         // capturando o botao btAvaliacaoAprovaConvenio do XML pela ID.
