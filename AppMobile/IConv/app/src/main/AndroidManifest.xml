@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_logo_iconv"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -19,7 +19,7 @@
         <activity android:name=".ListaConveniosActivity" />
         <activity android:name=".AvaliacaoPassoUmActivity" />
         <activity android:name=".AvaliacaoPassoDoisActivity" />
-        <activity android:name=".PrestacaoContasActivity"></activity>
+        <activity android:name=".PrestacaoContasActivity"/>
     </application>
 
 </manifest>
