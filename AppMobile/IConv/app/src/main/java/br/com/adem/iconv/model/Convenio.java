@@ -12,9 +12,9 @@ public class Convenio implements Serializable {
     private String concedente;
     private String convenente;
     private String objeto;
-    private Double valorTotal;
-    private Double valorRepassado;
-    private Double valorRestante;
+    private String valorTotal;
+    private String valorRepassado;
+    private String valorRestante;
     private List<PrestacaoContas> prestacaoContasList;
 
     public String getConvenio() {
@@ -49,27 +49,27 @@ public class Convenio implements Serializable {
         this.objeto = objeto;
     }
 
-    public Double getValorTotal() {
+    public String getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(Double valorTotal) {
+    public void setValorTotal(String valorTotal) {
         this.valorTotal = valorTotal;
     }
 
-    public Double getValorRepassado() {
+    public String getValorRepassado() {
         return valorRepassado;
     }
 
-    public void setValorRepassado(Double valorRepassado) {
+    public void setValorRepassado(String valorRepassado) {
         this.valorRepassado = valorRepassado;
     }
 
-    public Double getValorRestante() {
+    public String getValorRestante() {
         return valorRestante;
     }
 
-    public void setValorRestante(Double valorRestante) {
+    public void setValorRestante(String valorRestante) {
         this.valorRestante = valorRestante;
     }
 
