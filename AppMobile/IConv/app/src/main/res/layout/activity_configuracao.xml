@@ -108,32 +108,42 @@
         android:text="Situação do Convênio:"/>
 
     <CheckBox
-        android:id="@+id/ckSituacaoEncerrado"
+        android:id="@+id/ckSituacaoAssinado"
+        android:text="Assinado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lblSituacaoConvenio"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:checked="false"
-        android:text="Encerrado"/>
+        android:checked="false" />
 
     <CheckBox
         android:id="@+id/ckSituacaoEmExecucao"
+        android:text="Em execução"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lblSituacaoConvenio"
-        android:layout_alignLeft="@+id/ckNaturezaPrivada"
-        android:layout_alignStart="@+id/ckNaturezaPrivada"
+        android:layout_toRightOf="@+id/ckSituacaoAssinado"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:checked="false" />
+
+    <CheckBox
+        android:id="@+id/ckSituacaoFinalizado"
+        android:text="Finalizado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:checked="false"
-        android:text="Em execução" />
+        android:layout_below="@+id/ckSituacaoAssinado"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/btOkConfiguracao"
+        android:text="OK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ckSituacaoEmExecucao"
+        android:layout_below="@+id/ckSituacaoFinalizado"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="OK"
-        android:textAlignment="center"/>
+        android:textAlignment="center" />
 </RelativeLayout>
