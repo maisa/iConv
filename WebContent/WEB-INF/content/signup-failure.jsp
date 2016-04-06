@@ -29,7 +29,7 @@
 
 		<div class="navbar-collapse collapse navbar-responsive-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/iConv">Sobre</a></li>
+				<li><a href="">Sobre</a></li>
 				<li class="active"><a href="signup-input">Cadastre-se</a></li>
 				<li><a href="login-input">Acesse</a></li>
 			</ul>

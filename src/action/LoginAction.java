@@ -1,8 +1,20 @@
 package action;
 
-import org.apache.struts2.convention.annotation.Action;
+import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
+import model.Convenio;
+import model.Usuario;
+
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+
+import service.ConvenioService;
 import service.UsuarioService;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.StringLengthFieldValidator;
@@ -20,18 +32,37 @@ public class LoginAction extends ActionSupport {
 		return "login";
 	}
 
-	@Action("login")
+	//@Action("login")
+	@Override
+	@Action(value = "login", results = { @Result(name = "convenente-input", location = "convenente-input", type = "redirect"),
+			@Result(name = "concedente-input", location = "concedente-input", type = "redirect"),@Result(name = "convenente-teste", location = "convenente-teste", type = "redirect")})
 	public String execute() throws Exception {
-		String result = "";
-		UsuarioService studentService = new UsuarioService();
-
-		if (pageName != null && studentService != null) {
+		
+		Usuario usuario = new Usuario();
+		UsuarioService usuarioService = new UsuarioService();
+		
+		String listaConvenios = "";
+		ConvenioService convenioService = new ConvenioService();
+		
+		if (pageName != null && usuarioService != null) {
 			if (pageName.equals("login")) {
-				result = studentService.findByLogin(id, senha);
-				if (result.equals("LoginFailure")) {
+				usuario = usuarioService.findByLogin(id, senha);
+				if (usuario.getId() == null) {
 					return "failure";
 				} else {
-					return "success";
+					Map session = ActionContext.getContext().getSession();
+					
+					listaConvenios = convenioService.listaConvenioByCpfProponente(usuario.getId());
+					
+					session.put("listaConvenios",listaConvenios);
+					session.put("id",usuario.getId());
+					session.put("nome",usuario.getNome());
+					
+					if (usuario.getPerfil().equals("1")) 
+						return "convenente-input";
+					else if (usuario.getPerfil().equals("2"))
+						return "concedente-input";
+					else return "failure";
 				}
 			}
 		}
@@ -50,8 +81,8 @@ public class LoginAction extends ActionSupport {
 		return id;
 	}
 
-	@RequiredStringValidator(type = ValidatorType.FIELD, message = "UserName is a required field")
-	@StringLengthFieldValidator(type = ValidatorType.FIELD, maxLength = "12", minLength = "6", message = "UserName must be of length between 6 and 12")
+	@RequiredStringValidator(type = ValidatorType.FIELD, message = "CPF é um campo obrigatório.")
+	@StringLengthFieldValidator(type = ValidatorType.FIELD, maxLength = "11", minLength = "11", message = "O CPF deve ter 11 dígitos.")
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -60,8 +91,8 @@ public class LoginAction extends ActionSupport {
 		return senha;
 	}
 
-	@RequiredStringValidator(type = ValidatorType.FIELD, message = "Password is a required field")
-	@StringLengthFieldValidator(type = ValidatorType.FIELD, maxLength = "12", minLength = "6", message = "Password must be of length between 6 and 12")
+	@RequiredStringValidator(type = ValidatorType.FIELD, message = "Senha é um campo obrigatório.")
+	@StringLengthFieldValidator(type = ValidatorType.FIELD, maxLength = "12", minLength = "6", message = "A senha deve ter entre 6 a 12 dígitos.")
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}

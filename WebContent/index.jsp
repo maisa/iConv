@@ -29,7 +29,8 @@ body {
 				<li class="active"><a href="iConv">Sobre</a></li>
 				<li><a href="signup-input">Cadastre-se</a></li>
 				<li><a href="login-input">Acesse</a></li>
-
+				<li hidden="ture"><a href="convenente-input"></a></li>
+				<li hidden="ture"><a href="concedente-input"></a></li>
 			</ul>
 		</div>
 		<!-- /.nav-collapse -->

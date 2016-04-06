@@ -60,7 +60,7 @@ input[type="text"],input[type="password"] {
 		<div class="navbar-collapse collapse navbar-responsive-collapse">
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/iConv">Sobre</a></li>
+				<li><a href="">Sobre</a></li>
 				<li><a href="signup-input">Cadastre-se</a></li>
 				<li class="active"><a href="login-input">Acesse</a></li>
 
@@ -88,8 +88,8 @@ input[type="text"],input[type="password"] {
 									cssClass="col-lg-11" placeholder="Senha" />
 
 								<div class="col-lg-9 col-lg-offset-3">
-									<s:submit cssClass="btn btn-default" value="Cancel" />
-									<s:submit cssClass="btn btn-primary" value="Login" />
+									<s:submit cssClass="btn btn-default" value="Cancelar" />
+									<s:submit cssClass="btn btn-primary" value="Entrar" />
 								</div>
 								<s:hidden name="pageName" value="login" />
 							</fieldset>

@@ -9,7 +9,7 @@ public class BdUtil {
 	private static Connection dbConnection = null;
 
 	public static Connection getConnection() {
-		System.out.print("entrei aki");
+		System.out.print("Conectando...");
 		if (dbConnection != null) {
 			return dbConnection;
 		} else {
@@ -27,8 +27,10 @@ public class BdUtil {
 					String password = properties.getProperty("password");
 					System.out.print(connectionUrl+" "+userName+" "+password);
 					Class.forName(dbDriver).newInstance();
+					//DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
 					dbConnection = DriverManager.getConnection(connectionUrl,
 							userName, password);
+					
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
