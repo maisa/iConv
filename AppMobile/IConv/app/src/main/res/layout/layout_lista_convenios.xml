@@ -5,146 +5,151 @@
 
     <TextView
         android:id="@+id/lblConvenioListaConvenios"
-        android:text="Convênio No:"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/txtConvenioListaConvenios"
-        android:layout_alignEnd="@+id/txtConvenioListaConvenios" />
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="Convênio No:" />
 
     <TextView
         android:id="@+id/txtConvenioListaConvenios"
-        android:text="-"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lblConvenioListaConvenios"
-        android:layout_alignRight="@+id/lblConcedenteListaConvenios"
-        android:layout_alignEnd="@+id/lblConcedenteListaConvenios" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/lblConvenioListaConvenios"
+        android:layout_toEndOf="@+id/lblConvenioListaConvenios"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="_" />
 
     <TextView
         android:id="@+id/lblConcedenteListaConvenios"
         android:text="Concedente:"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtConvenioListaConvenios"
-        android:layout_toLeftOf="@+id/imgStatusListaConvenios"
-        android:layout_toStartOf="@+id/imgStatusListaConvenios" />
+        android:layout_below="@+id/lblConvenioListaConvenios"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
 
     <TextView
         android:id="@+id/txtConcedenteListaConvenios"
-        android:text="-"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_width="match_parent"
+        android:text="_"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lblConcedenteListaConvenios"
+        android:layout_below="@+id/txtConvenioListaConvenios"
+        android:layout_toRightOf="@+id/lblConcedenteListaConvenios"
         android:layout_toLeftOf="@+id/imgStatusListaConvenios"
-        android:layout_toStartOf="@+id/imgStatusListaConvenios" />
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
 
     <TextView
         android:id="@+id/lblConvenenteListaConvenios"
         android:text="Convenente:"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtConcedenteListaConvenios"
-        android:layout_toLeftOf="@+id/imgStatusListaConvenios"
-        android:layout_toStartOf="@+id/imgStatusListaConvenios" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
 
     <TextView
         android:id="@+id/txtConvenenteListaConvenios"
-        android:text="-"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_width="match_parent"
+        android:text="_"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lblConvenenteListaConvenios"
-        android:layout_alignRight="@+id/lblConvenenteListaConvenios"
-        android:layout_alignEnd="@+id/lblConvenenteListaConvenios" />
+        android:layout_below="@+id/txtConcedenteListaConvenios"
+        android:layout_toRightOf="@+id/lblConvenenteListaConvenios"
+        android:layout_toLeftOf="@+id/imgStatusListaConvenios"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
 
     <TextView
         android:id="@+id/lblValorTotalListaConvenios"
-        android:text="Valor do Convênio:"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:text="Valor Convênio:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtConvenenteListaConvenios"/>
+        android:layout_below="@+id/txtConvenenteListaConvenios"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
 
     <TextView
         android:id="@+id/txtValorTotalListaConvenios"
-        android:text="-"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:text="_"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lblValorTotalListaConvenios"
-        android:layout_alignRight="@+id/lblValorTotalListaConvenios"/>
+        android:layout_alignLeft="@+id/lblValorTotalListaConvenios"
+        android:layout_alignStart="@+id/lblValorTotalListaConvenios" />
 
     <TextView
         android:id="@+id/lblValorRepassadoListaConvenios"
-        android:text="Valor Repassado:"
-        android:layout_marginRight="@dimen/activity_vertical_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/lblValorTotalListaConvenios"
-        android:layout_alignParentRight="true"/>
+        android:layout_above="@+id/txtValorTotalListaConvenios"
+        android:layout_toRightOf="@+id/lblValorTotalListaConvenios"
+        android:layout_toEndOf="@+id/lblValorTotalListaConvenios"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text="Valor Repassado:"/>
 
     <TextView
         android:id="@+id/txtValorRepassadoListaConvenios"
-        android:text="-"
-        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:text="_"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lblValorRepassadoListaConvenios"
-        android:layout_alignRight="@+id/lblValorRepassadoListaConvenios" />
+        android:layout_alignLeft="@+id/lblValorRepassadoListaConvenios"
+        android:layout_alignStart="@+id/lblValorRepassadoListaConvenios" />
 
     <TextView
         android:id="@+id/lblValorARepassarListaConvenios"
         android:text="A Repassar:"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtValorTotalListaConvenios" />
+        android:layout_alignTop="@+id/lblValorRepassadoListaConvenios"
+        android:layout_toRightOf="@+id/lblValorRepassadoListaConvenios"
+        android:layout_toEndOf="@+id/lblValorRepassadoListaConvenios"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
 
     <TextView
         android:id="@+id/txtValorARepassarListaConvenios"
-        android:text="-"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:text="_"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lblValorARepassarListaConvenios"
-        android:layout_alignRight="@+id/lblValorTotalListaConvenios"
-        android:layout_alignEnd="@+id/lblValorTotalListaConvenios" />
-
-    <ImageView
-        android:id="@+id/imgStatusListaConvenios"
-        android:layout_marginRight="@dimen/activity_vertical_margin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_dialog_alert"
-        android:layout_below="@+id/lblConcedenteListaConvenios"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignLeft="@+id/lblValorARepassarListaConvenios"
+        android:layout_alignStart="@+id/lblValorARepassarListaConvenios" />
 
     <TextView
         android:id="@+id/lblObjetoListaConvenios"
         android:text="Objeto:"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtValorARepassarListaConvenios"
-        android:layout_toLeftOf="@+id/imgStatusListaConvenios"
-        android:layout_toStartOf="@+id/imgStatusListaConvenios"/>
+        android:layout_below="@+id/txtValorTotalListaConvenios"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
 
     <TextView
         android:id="@+id/txtObjetoListaConvenios"
         android:text="-"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lblObjetoListaConvenios"
-        android:layout_alignRight="@+id/lblObjetoListaConvenios"
-        android:layout_alignEnd="@+id/lblObjetoListaConvenios" />
+        android:layout_below="@+id/txtValorRepassadoListaConvenios"
+        android:layout_toRightOf="@+id/lblObjetoListaConvenios"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+    <ImageView
+        android:id="@+id/imgStatusListaConvenios"
+        android:src="@android:drawable/ic_dialog_alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txtConcedenteListaConvenios"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
