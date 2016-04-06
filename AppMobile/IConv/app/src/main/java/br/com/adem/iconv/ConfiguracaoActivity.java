@@ -65,16 +65,27 @@ public class ConfiguracaoActivity extends AppCompatActivity {
         btOkConfiguracao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Estado estadoSalvo = aEstados.getItem(spEstado.getSelectedItemPosition());
-                Municipio municipioSalvo = aMunicipios.getItem(spMunicipios.getSelectedItemPosition());
+                Estado estadoSalvo = null;
+                Municipio municipioSalvo = null;
 
-                /*Toast.makeText(v.getContext(), "Estado configurado:" + estadoSalvo.getUnidadeFederativa(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(v.getContext(), "Municipio configurado:" + estadoSalvo.getUnidadeFederativa(), Toast.LENGTH_SHORT).show();*/
+                if (spEstado != null) {
+                    estadoSalvo = aEstados.getItem(spEstado.getSelectedItemPosition());
+                } else {
+                    Toast.makeText(v.getContext(), "É necessário escolher um Estado.", Toast.LENGTH_SHORT).show();
+                }
 
-                Intent mainActivity = new Intent(v.getContext(), MainActivity.class);
-                mainActivity.putExtra("estado", estadoSalvo);
-                mainActivity.putExtra("municipio", municipioSalvo);
-                startActivity(mainActivity);
+                if (spMunicipios != null) {
+                    municipioSalvo = aMunicipios.getItem(spMunicipios.getSelectedItemPosition());
+                } else {
+                    Toast.makeText(v.getContext(), "É necessário escolher um Município.", Toast.LENGTH_SHORT).show();
+                }
+
+                if (estadoSalvo != null && municipioSalvo != null) {
+                    Intent mainActivity = new Intent(v.getContext(), MainActivity.class);
+                    mainActivity.putExtra("estado", estadoSalvo);
+                    mainActivity.putExtra("municipio", municipioSalvo);
+                    startActivity(mainActivity);
+                }
             }
         });
     }
