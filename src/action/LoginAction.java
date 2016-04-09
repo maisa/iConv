@@ -32,7 +32,6 @@ public class LoginAction extends ActionSupport {
 		return "login";
 	}
 
-	//@Action("login")
 	@Override
 	@Action(value = "login", results = { @Result(name = "convenente-input", location = "convenente-input", type = "redirect"),
 			@Result(name = "concedente-input", location = "concedente-input", type = "redirect"),@Result(name = "convenente-teste", location = "convenente-teste", type = "redirect")})
@@ -96,5 +95,4 @@ public class LoginAction extends ActionSupport {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
 }

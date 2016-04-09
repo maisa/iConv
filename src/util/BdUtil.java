@@ -25,9 +25,7 @@ public class BdUtil {
 							.getProperty("connectionUrl");
 					String userName = properties.getProperty("userName");
 					String password = properties.getProperty("password");
-					System.out.print(connectionUrl+" "+userName+" "+password);
 					Class.forName(dbDriver).newInstance();
-					//DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
 					dbConnection = DriverManager.getConnection(connectionUrl,
 							userName, password);
 					

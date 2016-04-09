@@ -122,9 +122,27 @@
 <title>iConv - Acesso</title>
 
  <script type = "text/javascript" 
-         src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+         src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+
+ 
+ </script>
+ 
+ 
 		
 <script type = "text/javascript" language = "javascript">
+
+function carregarUpload(a) {
+
+	var z = a.text;
+
+	var arq = "/assets/"+z;
+	//alert(arq);
+	//arq = "assets/img/"+arq;
+	//alert(arq);
+	window.open(arq, "Arquivo", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,fullscreen=no"); 
+	//window.open("C:\Users\Maisa\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\iConv\assets\testelalaMIA.jpg", "Arquivo", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,fullscreen=no");
+	
+}
 
 	function salvarArquivo() {
 		var convenio = $('#nr_convenio').html();
@@ -140,17 +158,13 @@
 		var listaTransacoes = '<%= session.getAttribute("listaConvenios")%>';
 		var lista = listaTransacoes.split(";");
 		var i;
-		
        	var items = '<ul class="sidebar-nav" > <li><b>Seus Convênios</b></li>';
+       	
        	for (i=0; i<(lista.length -1); i++) {
        		items += "<li><a href=\"convenente.action?upload=N&amp;nr_convenio="+lista[i] + "\">" + 
-			lista[i] + "</a>";
-				
-       			
-     }
-       	
+			lista[i] + "</a>";       			
+     	}
 
-       	
        	items += '</ul>';
        	$('#sidebar-wrapper').append(items);
 	}
@@ -259,6 +273,7 @@
 																
 								<s:hidden name="pageName" value="convenente" />
 								<s:hidden name="convenioSelecionado"/>
+								
 							    <legend>Informações sobre Pagamentos</legend>		
 								<table class="table table-bordered">
 								<tr>
@@ -288,6 +303,30 @@
 								</s:iterator>
 								</table>
 								<legend>Anexos</legend>
+								
+								<table class="table table-bordered">
+								<tr>
+									<th>Nome arquivo
+									</th>
+									<th>Visualizar arquivo
+									</th>
+								</tr>
+								
+								<s:iterator value="listaPrestacaoContaArquivo">
+								<tr>
+								
+								<td><span > <s:property value="nome_arquivo"/></span> </td>
+								<td>
+								
+								
+								<a id="link" href="##" onclick="carregarUpload(this)"><s:property value="nome_arquivo"/></a>
+								
+								 </td>
+								</tr>
+								</s:iterator>
+								</table>
+								
+								
 								<s:label>Adicione arquivos, podem ser fotos de execução, notas fiscais, recibos, etc.
 								<b>Lembre-se, seu convênio está sendo fiscalizado pelos cidadãos!</b>
 								</s:label>

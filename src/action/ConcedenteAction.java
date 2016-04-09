@@ -1,13 +1,13 @@
 package action;
 
-import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 
-import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
+import model.AvaliacaoUsuario;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 
-import service.UsuarioService;
+import service.ConvenioService;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -15,63 +15,60 @@ import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.StringLengthFieldValidator;
 import com.opensymphony.xwork2.validator.annotations.ValidatorType;
 
+import java.util.List;
+import java.util.Map;
+
+
 @SuppressWarnings("serial")
 public class ConcedenteAction extends ActionSupport {
 
-	private String pageName;
-	private String id;
-	private String nome;
-	
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+	private List<AvaliacaoUsuario> listaAvaliacoes;
+    private String convenioSelecionado;
 
 	@Action("concedente-input")
-	public String input() throws Exception {
-		
+	public String input() throws Exception {		
 		return "concedente";
 	}
 
+	@Override
 	@Action("concedente")
 	public String execute() throws Exception {
-		String result = "";
-		UsuarioService studentService = new UsuarioService();
-
-		if (pageName != null && studentService != null) {
-			if (pageName.equals("concedente")) {
-				/*result = studentService.findByLogin(id, senha);
-				if (result.equals("LoginFailure")) {
-					return "failure";
-				} else {
-					return "convenente";
-				}*/
-				System.out.print(id);
-			}
+		ConvenioService convenioService = new ConvenioService();
+		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String nr_convenio = request.getParameter("nr_convenio");	
+		
+		if (nr_convenio != null) {
+			this.setConvenioSelecionado(nr_convenio);
 		}
+		
+
+
+		if (convenioService != null) {
+			List<AvaliacaoUsuario> listaAvaliacoes = convenioService.listaAvaliacoes(this.getConvenioSelecionado());
+			this.setListaAvaliacoes(listaAvaliacoes);
+			return "ok"; 
+		}
+			
 		return SUCCESS;
 	}
 
-	public String getPageName() {
-		return pageName;
+	public List<AvaliacaoUsuario> getListaAvaliacoes() {
+		return listaAvaliacoes;
 	}
 
-	public void setPageName(String pageName) {
-		this.pageName = pageName;
+
+	public void setListaAvaliacoes(List<AvaliacaoUsuario> listaAvaliacoes) {
+		this.listaAvaliacoes = listaAvaliacoes;
 	}
 
-	public String getId() {
-		return id;
+	public String getConvenioSelecionado() {
+		return convenioSelecionado;
 	}
 
-	@RequiredStringValidator(type = ValidatorType.FIELD, message = "CPF é um campo obrigatório.")
-	@StringLengthFieldValidator(type = ValidatorType.FIELD, maxLength = "11", minLength = "11", message = "O CPF deve ter 11 dígitos.")
-	public void setId(String id) {
-		this.id = id;
-	}
 
+	public void setConvenioSelecionado(String convenioSelecionado) {
+		this.convenioSelecionado = convenioSelecionado;
+	}
+	
 }

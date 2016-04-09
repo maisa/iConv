@@ -26,15 +26,9 @@ public class UsuarioService {
 	}
 
 	public Usuario findByLogin(String userName, String password) {
-		//String result = "LoginFailure";
 		Usuario usuario = new Usuario();
 		if (usuarioRepository != null) {
 			usuario = usuarioRepository.findByLogin(userName, password);
-			/*if (usuario == null) {
-				result = "LoginFailure";
-			} else {
-				result = perfil;
-			}*/
 		}
 		return usuario;
 	}

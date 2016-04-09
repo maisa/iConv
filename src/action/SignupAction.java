@@ -17,9 +17,6 @@ import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 @SuppressWarnings("serial")
 public class SignupAction extends ActionSupport {
-
-
-
 	private String pageName;
 	private String id;
 	private String senha;
@@ -27,21 +24,10 @@ public class SignupAction extends ActionSupport {
 	private String email;
 	private String perfil;
 
-
 	@Action("signup-input")
 	public String input() throws Exception {
 		return "signup";
 	}
-
-	public String getPerfil() {
-		return perfil;
-	}
-
-	public void setPerfil(String perfil) {
-		this.perfil = perfil;
-	}
-
-
 
 	@Override
 	@Action(value = "signup", results = { @Result(name = "login-input", location = "login-input", type = "redirect") })
@@ -100,8 +86,6 @@ public class SignupAction extends ActionSupport {
 		this.nome = nome;
 	}
 
-
-
 	public String getEmail() {
 		return email;
 	}
@@ -110,5 +94,13 @@ public class SignupAction extends ActionSupport {
 	@EmailValidator(type = ValidatorType.FIELD, message = "O e-mail deve ser válido.")
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
 	}
 }
