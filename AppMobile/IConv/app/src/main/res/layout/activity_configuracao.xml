@@ -9,142 +9,82 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.com.adem.iconv.ConfiguracaoActivity">
 
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lblTipoEnteTelaConfiguracao"
+            android:text="Convênio firmado com:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <RadioButton
+            android:id="@+id/opEnteEstadualTelaConfiguracao"
+            android:text="Governo Estadual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked" />
+
+        <RadioButton
+            android:id="@+id/opEnteMunicipalTelaConfiguracao"
+            android:text="Prefeitura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked" />
+    </RadioGroup>
+
     <TextView
-        android:id="@+id/lblEstados"
+        android:id="@+id/lblEstadoTelaConfiguracao"
+        android:text="Estado"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_below="@+id/radioGroup"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Estado:" />
+        android:layout_alignParentStart="true" />
 
     <Spinner
-        android:id="@+id/spEstados"
+        android:id="@+id/spEstadosTelaConfiguracao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lblEstados"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        />
-
-    <TextView
-        android:id="@+id/lblMunicipios"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spEstados"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Municipio:"/>
-
-    <Spinner
-        android:id="@+id/spMunicipios"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblMunicipios"
+        android:layout_below="@+id/lblEstadoTelaConfiguracao"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/lblNaturezaConvenente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spMunicipios"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:id="@+id/lblMunicipioTelaConfiguracao"
+        android:text="Município:"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Natureza do Convenente:" />
-
-    <CheckBox
-        android:id="@+id/ckNaturezaFederal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lblNaturezaConvenente"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_below="@+id/spEstadosTelaConfiguracao"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="false"
-        android:text="Federal" />
+        android:layout_alignParentStart="true" />
 
-    <CheckBox
-        android:id="@+id/ckNaturezaEstadual"
+    <Spinner
+        android:id="@+id/spMunicipiosTelaConfiguracao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ckNaturezaFederal"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="false"
-        android:text="Estadual"/>
-
-    <CheckBox
-        android:id="@+id/ckNaturezaMunicipal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblNaturezaConvenente"
-        android:layout_alignRight="@+id/lblNaturezaConvenente"
-        android:layout_alignEnd="@+id/lblNaturezaConvenente"
-        android:checked="false"
-        android:text="Municipal"/>
-
-    <CheckBox
-        android:id="@+id/ckNaturezaPrivada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ckNaturezaMunicipal"
-        android:layout_alignLeft="@+id/ckNaturezaMunicipal"
-        android:layout_alignStart="@+id/ckNaturezaMunicipal"
-        android:checked="false"
-        android:text="Privada"/>
-
-    <TextView
-        android:id="@+id/lblSituacaoConvenio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ckNaturezaEstadual"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="21dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Situação do Convênio:"/>
-
-    <CheckBox
-        android:id="@+id/ckSituacaoAssinado"
-        android:text="Assinado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblSituacaoConvenio"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="false" />
-
-    <CheckBox
-        android:id="@+id/ckSituacaoEmExecucao"
-        android:text="Em execução"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:layout_below="@+id/lblSituacaoConvenio"
-        android:layout_toRightOf="@+id/ckSituacaoAssinado"
-        android:layout_toEndOf="@+id/ckSituacaoAssinado"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
-
-    <CheckBox
-        android:id="@+id/ckSituacaoFinalizado"
-        android:text="Finalizado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:layout_below="@+id/ckSituacaoAssinado"
+        android:layout_below="@+id/lblMunicipioTelaConfiguracao"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/btOkConfiguracao"
         android:text="OK"
+        android:textAlignment="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ckSituacaoFinalizado"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:textAlignment="center" />
+        android:layout_below="@+id/spMunicipiosTelaConfiguracao"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
