@@ -35,6 +35,8 @@ public class ConfiguracaoActivity extends AppCompatActivity {
     private RadioButton opEnteEstadualTelaConfiguracao;
     private RadioButton opEnteMunicipalTelaConfiguracao;
 
+    private Estado estadoSelecionado;
+
     private Button btOkConfiguracao;
 
     @Override
@@ -57,19 +59,8 @@ public class ConfiguracaoActivity extends AppCompatActivity {
         spEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Estado estadoSelecionado = aEstados.getItem(spEstado.getSelectedItemPosition());
-
-                if (opEnteMunicipalTelaConfiguracao.isChecked() == true) {
-                    if (spEstado.getSelectedItemPosition() != 0) {
-                        // Modelo do Spinner Municipio.
-                        aMunicipios = new ArrayAdapter<Municipio>(view.getContext(), android.R.layout.simple_spinner_item, municipioDAO.listarPorEstado(estadoSelecionado.getCodigo()));
-                        spMunicipios.setAdapter(aMunicipios);
-                    }
-                } else {
-                    // Modelo do Spinner Municipio.
-                    aMunicipios = new ArrayAdapter<Municipio>(view.getContext(), android.R.layout.simple_spinner_item, new ArrayList<Municipio>());
-                    spMunicipios.setAdapter(aMunicipios);
-                }
+                estadoSelecionado = aEstados.getItem(spEstado.getSelectedItemPosition());
+                carregarMunicipios(view);
             }
 
             @Override
@@ -120,6 +111,20 @@ public class ConfiguracaoActivity extends AppCompatActivity {
         });
     }
 
+    private void carregarMunicipios(View view) {
+        if (opEnteMunicipalTelaConfiguracao.isChecked() == true) {
+            if (spEstado.getSelectedItemPosition() != 0) {
+                // Modelo do Spinner Municipio.
+                aMunicipios = new ArrayAdapter<Municipio>(view.getContext(), android.R.layout.simple_spinner_item, municipioDAO.listarPorEstado(estadoSelecionado.getCodigo()));
+                spMunicipios.setAdapter(aMunicipios);
+            }
+        } else {
+            // Modelo do Spinner Municipio.
+            aMunicipios = new ArrayAdapter<Municipio>(view.getContext(), android.R.layout.simple_spinner_item, new ArrayList<Municipio>());
+            spMunicipios.setAdapter(aMunicipios);
+        }
+    }
+
     private void startListaConveniosActivity(View v, Estado estadoSalvo, Municipio municipioSalvo) {
         Intent listaConveniosActivity = new Intent(v.getContext(), ListaConveniosActivity.class);
         listaConveniosActivity.putExtra("estado", estadoSalvo);
@@ -132,15 +137,18 @@ public class ConfiguracaoActivity extends AppCompatActivity {
 
         switch(view.getId()) {
             case R.id.opEnteEstadualTelaConfiguracao:
-                if (checked)
+                if (checked) {
                     lblMunicipio.setVisibility(View.INVISIBLE);
                     spMunicipios.setVisibility(View.INVISIBLE);
                     break;
+                }
             case R.id.opEnteMunicipalTelaConfiguracao:
-                if (checked)
+                if (checked) {
                     lblMunicipio.setVisibility(View.VISIBLE);
                     spMunicipios.setVisibility(View.VISIBLE);
+                    carregarMunicipios(view);
                     break;
+                }
         }
     }
 }
