@@ -3,7 +3,9 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.AvaliacaoUsuario;
 import model.Convenio;
+import model.PrestacaoContaArquivo;
 import model.PrestacaoContas;
 import model.Usuario;
 import repository.ConvenioRepository;
@@ -16,75 +18,50 @@ public class ConvenioService {
 		convenioRepository = new ConvenioRepository();
 	}
 	
-	public void gravaArquivoPrestacao(byte[] bfile, String nr_convenio) {
+	public void gravaArquivoPrestacao(byte[] bfile, String nome, String tipo, String nr_convenio) {
 		if (convenioRepository != null) {
-			 convenioRepository.gravaArquivoPrestacao(bfile, nr_convenio);
-			/*if (usuario == null) {
-				result = "LoginFailure";
-			} else {
-				result = perfil;
-			}*/
+			 convenioRepository.gravaArquivoPrestacao(bfile,nome, tipo, nr_convenio);
 		}
 	}
 
-	public String save(String userName, String password,
-			String firstName, String emailAddress, String perfil) {
-		/*if (studentRepository != null) {
-			if (studentRepository.findByUserName(userName)) {
-				return "SignupFailure-UserNameExists";
-			}
-			studentRepository.save(userName, password, firstName, emailAddress,
-					perfil);
-			return "SignupSuccess";
-		} else {
-			return "SignupFailure";
-		}*/
-		return "teste";
-	}
-
 	public String listaConvenioByCpfProponente(String cpf_responsavel_proponente) {
-		//String result = "LoginFailure";
 		String lista = "";
 		if (convenioRepository != null) {
 			lista = convenioRepository.listaConvenioByCpfProponente(cpf_responsavel_proponente);
-			/*if (usuario == null) {
-				result = "LoginFailure";
-			} else {
-				result = perfil;
-			}*/
 		}
 		return lista;
 	}
 	
 
 	public Convenio findByNumero(String nr_convenio) {
-		//String result = "LoginFailure";
 		Convenio convenio = new Convenio();
 		if (convenioRepository != null) {
 			convenio = convenioRepository.findByNumero(nr_convenio);
-			/*if (usuario == null) {
-				result = "LoginFailure";
-			} else {
-				result = perfil;
-			}*/
 		}
 		return convenio;
 	}
 	
 	public List<PrestacaoContas> listaPrestacao(String nr_convenio) {
-		//String result = "LoginFailure";
-		PrestacaoContas prestacaoConta = new PrestacaoContas();
 		List<PrestacaoContas> lista = new ArrayList<>();
 		if (convenioRepository != null) {
 			lista = convenioRepository.listaPrestacao(nr_convenio);
-			/*if (usuario == null) {
-				result = "LoginFailure";
-			} else {
-				result = perfil;
-			}*/
 		}
 		return lista;
 	}
 	
+	public List<AvaliacaoUsuario> listaAvaliacoes(String nr_convenio) {
+		List<AvaliacaoUsuario> lista = new ArrayList<>();
+		if (convenioRepository != null) {
+			lista = convenioRepository.listaAvaliacoes(nr_convenio);
+		}
+		return lista;
+	}
 	
+	public List<PrestacaoContaArquivo> listaPrestacaoArquivo(String nr_convenio) {
+		List<PrestacaoContaArquivo> lista = new ArrayList<>();
+		if (convenioRepository != null) {
+			lista = convenioRepository.listaPrestacaoArquivo(nr_convenio);
+		}
+		return lista;
+	}
 }

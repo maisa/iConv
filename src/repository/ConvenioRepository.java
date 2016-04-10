@@ -1,5 +1,7 @@
 package repository;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,9 +10,16 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
+import org.apache.struts2.ServletActionContext;
+
+import model.AvaliacaoUsuario;
 import model.Convenio;
+import model.PrestacaoContaArquivo;
 import model.PrestacaoContas;
 import model.Usuario;
 import util.BdUtil;
@@ -20,15 +29,18 @@ public class ConvenioRepository {
 
 	public ConvenioRepository() {
 		dbConnection = BdUtil.getConnection();
-	}
+	}	
 
-	public void gravaArquivoPrestacao(byte[] bfile, String nr_convenio) {
+	public void gravaArquivoPrestacao(byte[] bfile, String nome, String tipo, String nr_convenio) {
 		if (dbConnection != null) {
 			try {				
 				PreparedStatement prepStatement = dbConnection
-						.prepareStatement("insert into arquivo_prestacao_conta (nr_convenio,arquivo) values(?,?)");
+						.prepareStatement("insert into arquivo_prestacao_conta (nr_convenio,arquivo,nome_arquivo,tipo_arquivo) values(?,?,?,?)");
+				
 				prepStatement.setString(1, nr_convenio);
 				prepStatement.setBytes(2, bfile);
+				prepStatement.setString(3, nome);
+				prepStatement.setString(4, tipo);
 
 				prepStatement.executeUpdate();
 				
@@ -108,6 +120,76 @@ public class ConvenioRepository {
 						prestacao.setData(result.getString("dt_inclusao_mov_financeira"));
 						prestacao.setValor(result.getString("vl_pgto"));
 						lista.add(prestacao);
+						
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return lista;
+	}
+	
+	public List<AvaliacaoUsuario> listaAvaliacoes(String nr_convenio) {
+		AvaliacaoUsuario avaliacao = new AvaliacaoUsuario();
+		List<AvaliacaoUsuario> lista = new ArrayList<AvaliacaoUsuario>();
+		if (dbConnection != null) {
+			try {				
+				PreparedStatement prepStatement = dbConnection
+						.prepareStatement("select a.nr_convenio, q.tx_questao, count(*) as quantidade from avaliacao a, questao q where a.id_questao = q.id_questao and  a.nr_convenio = ? group by a.id_questao,q.tx_questao,a.nr_convenio ");
+				prepStatement.setString(1, nr_convenio);
+
+				ResultSet result = prepStatement.executeQuery();
+				if (result != null) {
+					while (result.next()) {
+						avaliacao = new AvaliacaoUsuario();
+						avaliacao.setNr_convenio(result.getString("nr_convenio"));
+						avaliacao.setResposta(result.getString("tx_questao"));
+						avaliacao.setQuantidade(result.getString("quantidade"));
+						lista.add(avaliacao);
+						
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return lista;
+	}
+	
+	public List<PrestacaoContaArquivo> listaPrestacaoArquivo(String nr_convenio) {
+		PrestacaoContaArquivo prestacaoArquivo = new PrestacaoContaArquivo();
+		List<PrestacaoContaArquivo> lista = new ArrayList<PrestacaoContaArquivo>();
+		if (dbConnection != null) {
+			try {				
+				PreparedStatement prepStatement = dbConnection
+						.prepareStatement("select * from arquivo_prestacao_conta where nr_convenio = ?");
+				prepStatement.setString(1, nr_convenio);
+				File f = null;
+				ResultSet result = prepStatement.executeQuery();
+				if (result != null) {
+					while (result.next()) {
+						prestacaoArquivo = new PrestacaoContaArquivo();
+						prestacaoArquivo.setNr_convenio(result.getString("nr_convenio"));
+						byte [] bytes = result.getBytes("arquivo");
+						if (bytes == null) {
+							continue;
+						}
+						
+						ServletContext context = ServletActionContext.getServletContext();
+						System.out.println(context.getRealPath("/assets"));
+						
+						prestacaoArquivo.setNome_arquivo(result.getString("nome_arquivo"));
+						
+						f = new File(context.getRealPath("/assets/")+prestacaoArquivo.getNome_arquivo());
+				        FileOutputStream fos = new FileOutputStream( f);
+				           
+				        fos.write( bytes );
+				        fos.close();
+						
+						prestacaoArquivo.setArquivo(f);
+						
+						lista.add(prestacaoArquivo);
 						
 					}
 				}
