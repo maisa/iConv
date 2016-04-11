@@ -7,6 +7,7 @@ import model.AvaliacaoUsuario;
 import model.Convenio;
 import model.PrestacaoContaArquivo;
 import model.PrestacaoContas;
+import model.RankingAvaliacoes;
 import model.Usuario;
 import repository.ConvenioRepository;
 
@@ -53,6 +54,14 @@ public class ConvenioService {
 		List<AvaliacaoUsuario> lista = new ArrayList<>();
 		if (convenioRepository != null) {
 			lista = convenioRepository.listaAvaliacoes(nr_convenio);
+		}
+		return lista;
+	}
+	
+	public List<RankingAvaliacoes> rankingAvaliacoes() {
+		List<RankingAvaliacoes> lista = new ArrayList<>();
+		if (convenioRepository != null) {
+			lista = convenioRepository.rankingAvaliacoes();
 		}
 		return lista;
 	}

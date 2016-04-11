@@ -3,10 +3,10 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags"%>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="http://static.pureexample.com/js/flot/excanvas.min.js"></script>
-<script src="http://static.pureexample.com/js/flot/jquery.flot.min.js"></script>
-<script src="http://static.pureexample.com/js/flot/jquery.flot.pie.min.js"></script>
+<script src="js/jquery-1.8.3.js"></script>
+<script src="js/excanvas.min.js"></script>
+<script src="js/jquery.flot.min.js"></script>
+<script src="js/jquery.flot.pie.min.js"></script>
 
 <!-- CSS -->
 <style type="text/css">
@@ -122,10 +122,7 @@
 <!-- Javascript -->
 <script type="text/javascript">
 $(function () {
-	
-
 	var listaResposta =  $('.tabela_resposta');
-	//var listaQuantidade =  $('.tabela_quantidade');
 	var tamLista = listaResposta.length;
 	var i = 0;
 	var respostas = [];
@@ -152,24 +149,12 @@ $(function () {
 	var out;
 	
 	for (i=0; i<tamLista; i++) {
-		alert('aki');
+
 		sera = respostas[i];
 		out = quantidade[i];
 		tes = {label: sera,data:out};
-		alert(tes.label);
-		alert(tes.data);
 		dados[i] = tes;
-		alert(dados[i].label);
-		alert(dados[i].data);
 	}
-
-    var data = [
-       {label: "A prestação de contas é suspeita.", data:4},
-       {label: "Os valores são suspeitos.", data: 11},
-       {label: "O convenente é suspeito.", data: 5},
-       {label: "O objetivo do convênio não foi alcançado.", data: 6},
-       {label: "Outros motivos.", data: 1}
-   ];
 
     var options = {
             series: {
@@ -199,20 +184,11 @@ $(function () {
             }
          };
    
-    // if (tamLista > 0) {
-    	alert('maisa');
-    	alert(dados.length);
+     if (tamLista > 0) {
 
-    	 var testando = [
-            {label: "A prestação de contas é suspeita.", data:4},
-            {label: "Os valores são suspeitos.", data: 11},
-            {label: "O convenente é suspeito.", data: 5},
-            {label: "O objetivo do convênio não foi alcançado.", data: 6},
-            {label: "Outros motivos.", data: 1}
-        ];
 
     	
-    $.plot($("#flotcontainer"), data, options);  
+    $.plot($("#flotcontainer"), dados, options);  
 
     $("#flotcontainer").bind("plothover", function(event, pos, obj){
         if (!obj){return;}
@@ -231,12 +207,11 @@ $(function () {
         alert(obj.series.label + " ("+ percent+ "%)");
 
     });
- //   }
+    }
 
 });
 </script>
 
-<!-- HTML -->
 <html>
 <head>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
@@ -302,11 +277,11 @@ $(function () {
 					</div>
 				</div>
 			</div>
-			
+			<div id="flotcontainer"></div>			
 			
 		</div>
 	</div>	
-	<div id="flotcontainer"></div>	  	
+	  	
 </body>
 </html>
 

@@ -3,6 +3,7 @@ package action;
 import javax.servlet.http.HttpServletRequest;
 
 import model.AvaliacaoUsuario;
+import model.RankingAvaliacoes;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
@@ -23,10 +24,21 @@ import java.util.Map;
 public class ConcedenteAction extends ActionSupport {
 
 	private List<AvaliacaoUsuario> listaAvaliacoes;
+	private List<RankingAvaliacoes> rankingAvaliacoes;
     private String convenioSelecionado;
 
 	@Action("concedente-input")
-	public String input() throws Exception {		
+	public String input() throws Exception {
+		ConvenioService convenioService = new ConvenioService();
+		if (convenioService != null) {
+			
+			List<RankingAvaliacoes> ranking = convenioService.rankingAvaliacoes();
+			this.setRankingAvaliacoes(ranking);
+			//List<AvaliacaoUsuario> listaAvaliacoes = convenioService.listaAvaliacoes(this.getConvenioSelecionado());
+			//this.setListaAvaliacoes(listaAvaliacoes);
+			return "concedente"; 
+		}
+		
 		return "concedente";
 	}
 
@@ -45,6 +57,9 @@ public class ConcedenteAction extends ActionSupport {
 
 
 		if (convenioService != null) {
+			
+			List<RankingAvaliacoes> ranking = convenioService.rankingAvaliacoes();
+			this.setRankingAvaliacoes(ranking);
 			List<AvaliacaoUsuario> listaAvaliacoes = convenioService.listaAvaliacoes(this.getConvenioSelecionado());
 			this.setListaAvaliacoes(listaAvaliacoes);
 			return "ok"; 
@@ -69,6 +84,14 @@ public class ConcedenteAction extends ActionSupport {
 
 	public void setConvenioSelecionado(String convenioSelecionado) {
 		this.convenioSelecionado = convenioSelecionado;
+	}
+
+	public List<RankingAvaliacoes> getRankingAvaliacoes() {
+		return rankingAvaliacoes;
+	}
+
+	public void setRankingAvaliacoes(List<RankingAvaliacoes> rankingAvaliacoes) {
+		this.rankingAvaliacoes = rankingAvaliacoes;
 	}
 	
 }

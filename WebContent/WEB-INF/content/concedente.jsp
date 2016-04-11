@@ -35,7 +35,7 @@
   pointer-events: auto;
 }
 .modalDialog > div {
-  width: 400px;
+  width: 660px;
   position: relative;
   margin: 10% auto;
   padding: 5px 20px 13px 20px;
@@ -120,6 +120,7 @@
 </style>
 
 <!-- Javascript -->
+
 <script type="text/javascript">
 $(function () {
 	var listaResposta =  $('.tabela_resposta');
@@ -209,9 +210,23 @@ $(function () {
     });
     }
 
+     document.getElementById('linkmodal').click();
 });
 </script>
 
+<script>
+
+function mostrarGrafico(a) {
+
+	var nr_convenio = a.text;
+	
+	var url = "concedente.action?nr_convenio="+nr_convenio; 
+	document.forms[0].action = url;
+	document.forms[0].submit();
+	
+}
+
+</script>
 <html>
 <head>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
@@ -220,33 +235,24 @@ $(function () {
 <body>
 
 
-	<nav class="navbar navbar-default" >
-		<div class="container">
-			<div class="navbar-header">
-				<span class="navbar-brand" ><b>Perfil:</b> Concedente</span>
-				<span class="navbar-brand" ><b>Gestor Responsável:</b> </span>
-	  			<span class="navbar-brand" ><s:property value="#session.id"/></span>
-	  			<span class="navbar-brand" >-</span>
-				<span class="navbar-brand"><s:property value="#session.nome"/></span>
-	  			
-			</div>
-			<div id="sidebar-wrapper" class="sidebar-toggle"> 
-			
-			<ul class="sidebar-nav" > 
-			    <li><b>FILTROS</b></li>
-
-	       		<li><a href="concedente.action?upload=N&amp;nr_convenio=774037">BUSCAR</a></li>
-					
-	       	</ul>
-			</div>
-		</div>				
-	</nav>
+		<nav class="navbar navbar-default" >
+			<div class="container" >
+				<div class="navbar-header" >
+					<span class="navbar-brand" ><b>Perfil:</b> Concedente</span>
+					<span class="navbar-brand" ><b>Gestor Responsável:</b> </span>
+		  			<span class="navbar-brand" ><s:property value="#session.id"/></span>
+		  			<span class="navbar-brand" >-</span>
+					<span class="navbar-brand"><s:property value="#session.nome"/></span>
+		  			
+				</div>
+			</div>				
+		</nav>
 	
-	<div id="frameDados" class="col-lg-10 col-lg-offset-2" >
+	
 		<div class="well">
 			<div class="container">
-				<div class="row">
-					<div class="col-lg-10">
+				<div class="row" >
+					
 						<s:form id="myForm" action="concedente" theme="bootstrap"
 							validate="true" cssClass="bs-example form-horizontal"
 							method="post"  enctype="multipart/form-data">
@@ -256,8 +262,29 @@ $(function () {
 								<s:hidden name="pageName" value="concedente" />
 								<s:hidden name="convenioSelecionado"/>
 								
-							    <legend>Resultados</legend>		
+							    <legend align="center">Ranking dos convênios mais reprovados pelos cidadãos.</legend>		
 								<table class="table table-bordered" id="tabelaDados">
+									<tr >
+										<th>Convênio</th>
+										<th>Nome Concedente</th>
+										<th>Nome Convenente</th>
+										<th>Reprovações</th>
+									</tr>
+									<s:iterator value="rankingAvaliacoes">
+										<tr>
+											<td><a id="link" href="##" title="Click para visualizar o gráfico sobre os motivos das reprovações." onclick="mostrarGrafico(this)"><s:property value="nr_convenio"/></a></td>
+											
+								
+											
+											<td><s:property value="nome_concedente"/> </td>
+											<td><s:property value="nome_convenente"/> </td>
+											<td><s:property value="n_reprovacoes"/> </td>
+										
+										</tr>
+									</s:iterator>
+								</table>
+								
+								<table class="table table-bordered" id="tabelaDados" hidden="true">
 									<tr>
 										<th>Convênio</th>
 										<th>Resposta</th>
@@ -272,16 +299,24 @@ $(function () {
 										</tr>
 									</s:iterator>
 								</table>
+								
 							</fieldset>
 						</s:form>
+					
+				</div>
+						
+				<a href="#openModal" id="linkmodal" hidden="true">Editar</a>	
+				<div id="openModal" class="modalDialog">
+					<div>
+					    <a href="#close" title="Close" class="close">X</a>
+					    <h2>Motivos das reprovações do convênio <s:property value="convenioSelecionado"/> </h2>
+						<div id="flotcontainer" ></div>	
 					</div>
 				</div>
+										
 			</div>
-			<div id="flotcontainer"></div>			
-			
 		</div>
-	</div>	
-	  	
+	
 </body>
 </html>
 

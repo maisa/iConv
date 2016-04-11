@@ -21,6 +21,7 @@ import model.AvaliacaoUsuario;
 import model.Convenio;
 import model.PrestacaoContaArquivo;
 import model.PrestacaoContas;
+import model.RankingAvaliacoes;
 import model.Usuario;
 import util.BdUtil;
 
@@ -55,7 +56,7 @@ public class ConvenioRepository {
 		if (dbConnection != null) {
 			try {				
 				PreparedStatement prepStatement = dbConnection
-						.prepareStatement("select nr_convenio from convenio where cpf_responsavel_proponente = ?");
+						.prepareStatement("select nr_convenio from gestor_convenente_convenio where cpf_gestor = ?");
 				prepStatement.setString(1, cpf_responsavel_proponente);
 
 				ResultSet result = prepStatement.executeQuery();
@@ -120,6 +121,35 @@ public class ConvenioRepository {
 						prestacao.setData(result.getString("dt_inclusao_mov_financeira"));
 						prestacao.setValor(result.getString("vl_pgto"));
 						lista.add(prestacao);
+						
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return lista;
+	}
+	
+	public List<RankingAvaliacoes> rankingAvaliacoes() {
+		RankingAvaliacoes ranking = new RankingAvaliacoes();
+		List<RankingAvaliacoes> lista = new ArrayList<RankingAvaliacoes>();
+		if (dbConnection != null) {
+			try {				
+				PreparedStatement prepStatement = dbConnection
+						.prepareStatement("select a.nr_convenio,c.nome_concedente,c.nome_convenente,c.objeto, COUNT(DISTINCT(id_app)) n_reprovacoes from avaliacao a, convenio c where a.nr_convenio = c.nr_convenio group by a.nr_convenio,c.nome_concedente,c.nome_convenente,c.objeto order by n_reprovacoes desc ");
+
+
+				ResultSet result = prepStatement.executeQuery();
+				if (result != null) {
+					while (result.next()) {
+						ranking = new RankingAvaliacoes();
+						ranking.setNr_convenio(result.getString("nr_convenio"));
+						ranking.setNome_concedente(result.getString("nome_concedente"));
+						ranking.setNome_convenente(result.getString("nome_convenente"));
+						ranking.setObjeto(result.getString("objeto"));
+						ranking.setN_reprovacoes(result.getString("n_reprovacoes"));
+						lista.add(ranking);
 						
 					}
 				}
