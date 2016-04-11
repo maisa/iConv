@@ -86,13 +86,13 @@ public class ConvenioRepository {
 						
 						convenio.setNr_convenio(result.getString("nr_convenio"));
 						convenio.setObjeto(result.getString("objeto"));
-						convenio.setTx_situacao(result.getString("tx_situacao"));
-						convenio.setUf_proponente(result.getString("uf_proponente"));
-						convenio.setNm_orgao_concedente(result.getString("nm_orgao_concedente"));
+						convenio.setUf_proponente(result.getString("uf"));
+						convenio.setNm_orgao_concedente(result.getString("nome_concedente"));
 						convenio.setDt_inicio_vigencia(result.getString("dt_inicio_vigencia"));
 						convenio.setDt_fim_vigencia(result.getString("dt_fim_vigencia"));
 						convenio.setVl_convenio(new BigDecimal(result.getString("vl_convenio")));
 						convenio.setVl_liberado(new BigDecimal(result.getString("vl_liberado")));
+						convenio.setVl_contrapartida(new BigDecimal(result.getString("vl_contrapartida")));
 						convenio.setVl_arepassar(convenio.getVl_convenio().subtract(convenio.getVl_liberado()));
 						return convenio;
 						
