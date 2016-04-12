@@ -53,6 +53,7 @@ public class ConfiguracaoActivity extends AppCompatActivity {
 
         // Modelo do Spinner Estado.
         aEstados = new ArrayAdapter<Estado>(this, android.R.layout.simple_spinner_item, estadoDAO.listar());
+
         // Captura o spinner Estado do XML pelo ID.
         spEstado.setAdapter(aEstados);
 
@@ -113,8 +114,9 @@ public class ConfiguracaoActivity extends AppCompatActivity {
 
     private void carregarMunicipios(View view) {
         if (opEnteMunicipalTelaConfiguracao.isChecked() == true) {
-            if (spEstado.getSelectedItemPosition() != 0) {
+            if (spEstado.getSelectedItem() != null) {
                 // Modelo do Spinner Municipio.
+                estadoSelecionado = (Estado) spEstado.getSelectedItem();
                 aMunicipios = new ArrayAdapter<Municipio>(view.getContext(), android.R.layout.simple_spinner_item, municipioDAO.listarPorEstado(estadoSelecionado.getCodigo()));
                 spMunicipios.setAdapter(aMunicipios);
             }
