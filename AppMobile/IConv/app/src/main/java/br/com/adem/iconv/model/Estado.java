@@ -10,9 +10,14 @@ public class Estado implements Comparable<Estado>, Serializable {
     private String unidadeFederativa;
     private String sigla;
 
-    public Estado(Integer codigo, String unidadeFederativa) {
+    public Estado() {
+
+    }
+
+    public Estado(Integer codigo, String unidadeFederativa, String sigla) {
         this.codigo = codigo;
         this.unidadeFederativa = unidadeFederativa;
+        this.sigla = sigla;
     }
 
     public Integer getCodigo() {
