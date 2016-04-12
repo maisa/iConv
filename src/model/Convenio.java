@@ -17,7 +17,16 @@ public class Convenio {
 	private BigDecimal vl_convenio;
 	private BigDecimal vl_liberado;
 	private BigDecimal vl_arepassar;
+	private BigDecimal vl_contrapartida;
 	
+	public BigDecimal getVl_contrapartida() {
+		return vl_contrapartida;
+	}
+
+	public void setVl_contrapartida(BigDecimal vl_contrapartida) {
+		this.vl_contrapartida = vl_contrapartida;
+	}
+
 	public String getNr_convenio() {
 		return nr_convenio;
 	}

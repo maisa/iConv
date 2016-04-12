@@ -48,6 +48,7 @@ public class ConvenenteAction extends ActionSupport {
 	private BigDecimal vl_convenio; 
 	private BigDecimal vl_liberado;
 	private BigDecimal vl_arepassar;
+	private BigDecimal vl_contrapartida;
 	private String objeto; 
 	private String tx_situacao; 
 	private String cpf_responsavel_proponente;
@@ -110,6 +111,7 @@ public class ConvenenteAction extends ActionSupport {
 			this.setVl_convenio(convenio.getVl_convenio());
 			this.setVl_liberado(convenio.getVl_liberado());
 			this.setVl_arepassar(convenio.getVl_arepassar());
+			this.setVl_contrapartida(convenio.getVl_contrapartida());
 			return "ok";
 			 
 		}
@@ -293,6 +295,14 @@ public class ConvenenteAction extends ActionSupport {
 		this.vl_arepassar = vl_arepassar;
 	}
 
+
+	public BigDecimal getVl_contrapartida() {
+		return vl_contrapartida;
+	}
+
+	public void setVl_contrapartida(BigDecimal vl_contrapartida) {
+		this.vl_contrapartida = vl_contrapartida;
+	}
 
 	public List<PrestacaoContaArquivo> getListaPrestacaoContaArquivo() {
 		return listaPrestacaoContaArquivo;

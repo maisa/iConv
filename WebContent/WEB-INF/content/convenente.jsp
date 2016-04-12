@@ -235,8 +235,8 @@ function carregarUpload(a) {
 								</s:label>
 								</td>
 								<td>
-								<s:label><b>Situação:</b>
-								<span><s:property value="tx_situacao"/></span>	
+								<s:label><b>Valor Contrapartida:</b>
+								<span><s:property value="vl_contrapartida"/></span>	
 								</s:label>
 								</td>
 								
