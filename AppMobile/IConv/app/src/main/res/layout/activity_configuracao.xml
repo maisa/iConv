@@ -52,7 +52,7 @@
 
     <Spinner
         android:id="@+id/spEstadosTelaConfiguracao"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lblEstadoTelaConfiguracao"
         android:layout_alignParentLeft="true"
@@ -71,7 +71,7 @@
 
     <Spinner
         android:id="@+id/spMunicipiosTelaConfiguracao"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lblMunicipioTelaConfiguracao"
         android:layout_alignParentLeft="true"
