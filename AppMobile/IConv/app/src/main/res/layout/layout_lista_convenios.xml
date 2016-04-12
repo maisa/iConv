@@ -145,7 +145,7 @@
 
     <ImageView
         android:id="@+id/imgStatusListaConvenios"
-        android:src="@android:drawable/ic_dialog_alert"
+        android:src="@mipmap/ic_detective"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/txtConcedenteListaConvenios"
