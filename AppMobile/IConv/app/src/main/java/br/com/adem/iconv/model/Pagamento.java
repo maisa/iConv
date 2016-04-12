@@ -1,30 +1,31 @@
 package br.com.adem.iconv.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by eduardo on 28/03/2016.
  */
-public class Pagamento {
-    private Date data;
-    private Double valor;
+public class Pagamento implements Serializable {
+    private String data;
+    private String valor;
     private String fornecedor;
     private String cnpjFornecedor;
     private String nrNotaFiscal;
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public Double getValor() {
+    public String getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(String valor) {
         this.valor = valor;
     }
 

@@ -15,7 +15,7 @@ public class Convenio implements Serializable {
     private String valorTotal;
     private String valorRepassado;
     private String valorRestante;
-    private List<PrestacaoContas> prestacaoContasList;
+    private List<Pagamento> pagamentoList;
 
     public String getConvenio() {
         return convenio;
@@ -73,11 +73,11 @@ public class Convenio implements Serializable {
         this.valorRestante = valorRestante;
     }
 
-    public List<PrestacaoContas> getPrestacaoContasList() {
-        return prestacaoContasList;
+    public List<Pagamento> getPagamentoList() {
+        return pagamentoList;
     }
 
-    public void setPrestacaoContasList(List<PrestacaoContas> prestacaoContasList) {
-        this.prestacaoContasList = prestacaoContasList;
+    public void setPagamentoList(List<Pagamento> pagamentoList) {
+        this.pagamentoList = pagamentoList;
     }
 }
