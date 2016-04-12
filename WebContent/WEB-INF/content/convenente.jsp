@@ -123,26 +123,17 @@
 
  <script type = "text/javascript" 
          src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
-
- 
  </script>
  
  
 		
 <script type = "text/javascript" language = "javascript">
 
-function carregarUpload(a) {
-
-	var z = a.text;
-
-	var arq = "/assets/"+z;
-	//alert(arq);
-	//arq = "assets/img/"+arq;
-	//alert(arq);
-	window.open(arq, "Arquivo", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,fullscreen=no"); 
-	//window.open("C:\Users\Maisa\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\iConv\assets\testelalaMIA.jpg", "Arquivo", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,fullscreen=no");
-	
-}
+	function carregarUpload(a) {
+		var z = a.text;
+		var arq = "/assets/"+z;
+		window.open(arq, "Arquivo", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,fullscreen=no");
+	}
 
 	function salvarArquivo() {
 		var convenio = $('#nr_convenio').html();
@@ -281,47 +272,29 @@ function carregarUpload(a) {
 								</th>
 								<th>Valor
 								</th>
-								<th>Editar
+								<th>Ordem Bancária
+								</th>
+								<th>Tipo Movimentação
 								</th>
 								</tr>
 								<s:iterator value="listaPrestacaoContas">
 								<tr>
 								<td><s:property value="data"/> </td>
 								<td><s:property value="valor"/> </td>
-								<td>
-									<a href="#openModal">Editar</a>	
-
-									<div id="openModal" class="modalDialog">
-									  <div>
-									    <a href="#close" title="Close" class="close">X</a>
-									    <h2>Editar</h2>
-									    <p>Em construção</p>
-									  </div>
-									</div> 								
-								</td>
-								</tr>
+								<td><s:property value="ordem_bancaria"/> </td>
+								<td><s:property value="tipo_movimentacao"/> </td>								</tr>
 								</s:iterator>
 								</table>
 								<legend>Anexos</legend>
 								
 								<table class="table table-bordered">
 								<tr>
-									<th>Nome arquivo
-									</th>
-									<th>Visualizar arquivo
-									</th>
+									<th>Nome do arquivo</th>
 								</tr>
 								
 								<s:iterator value="listaPrestacaoContaArquivo">
 								<tr>
-								
-								<td><span > <s:property value="nome_arquivo"/></span> </td>
-								<td>
-								
-								
-								<a id="link" href="##" onclick="carregarUpload(this)"><s:property value="nome_arquivo"/></a>
-								
-								 </td>
+									<td><span > <s:property value="nome_arquivo"/></span> </td>
 								</tr>
 								</s:iterator>
 								</table>
@@ -342,6 +315,5 @@ function carregarUpload(a) {
 		</div>
 	</div>	  	
 </div>
-	
 </body>
 </html>
