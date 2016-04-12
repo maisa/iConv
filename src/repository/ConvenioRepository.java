@@ -120,6 +120,8 @@ public class ConvenioRepository {
 						prestacao = new PrestacaoContas();
 						prestacao.setData(result.getString("dt_inclusao_mov_financeira"));
 						prestacao.setValor(result.getString("vl_pgto"));
+						prestacao.setOrdem_bancaria(result.getString("ordem_bancaria"));
+						prestacao.setTipo_movimentacao(result.getString("tx_tipo_movimentacao"));
 						lista.add(prestacao);
 						
 					}
