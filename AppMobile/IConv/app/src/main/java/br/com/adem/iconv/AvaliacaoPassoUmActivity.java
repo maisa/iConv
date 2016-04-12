@@ -9,6 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.adem.iconv.model.Convenio;
+import br.com.adem.iconv.model.Estado;
+import br.com.adem.iconv.model.Municipio;
 
 public class AvaliacaoPassoUmActivity extends AppCompatActivity {
 
@@ -16,13 +18,18 @@ public class AvaliacaoPassoUmActivity extends AppCompatActivity {
     private Button btAvaliacaoNaoAprovaConvenio;
     private Button btNaoOpinaAvaliacao;
     private Convenio convenioSelecionado;
+    private Estado estadoSelecionado;
+    private Municipio municipioSelecionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avaliacao_passo_um);
 
+        estadoSelecionado = (Estado) getIntent().getSerializableExtra("estado");
+        municipioSelecionado = (Municipio) getIntent().getSerializableExtra("municipio");
         convenioSelecionado = (Convenio) getIntent().getSerializableExtra("convenio");
+
         if (convenioSelecionado != null) {
             TextView txtConvenioTelaAvaliacaoUm = (TextView) findViewById(R.id.txtConvenioTelaAvaliacaoUm);
             TextView txtConcedenteTelaAvaliacaoUm = (TextView) findViewById(R.id.txtConcedenteTelaAvaliacaoUm);
@@ -47,7 +54,12 @@ public class AvaliacaoPassoUmActivity extends AppCompatActivity {
         btAvaliacaoAprovaConvenio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Convênio Aprovado.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "Sua opinião foi registrada!", Toast.LENGTH_SHORT).show();
+                Intent listaConveniosActivity = new Intent(v.getContext(), ListaConveniosActivity.class);
+                listaConveniosActivity.putExtra("convenio", convenioSelecionado);
+                listaConveniosActivity.putExtra("estado", estadoSelecionado);
+                listaConveniosActivity.putExtra("municipio", municipioSelecionado);
+                startActivity(listaConveniosActivity);
             }
         });
 
@@ -59,6 +71,8 @@ public class AvaliacaoPassoUmActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent avaliacaoPassoDoisActivity = new Intent(v.getContext(), AvaliacaoPassoDoisActivity.class);
                 avaliacaoPassoDoisActivity.putExtra("convenio", convenioSelecionado);
+                avaliacaoPassoDoisActivity.putExtra("estado", estadoSelecionado);
+                avaliacaoPassoDoisActivity.putExtra("municipio", municipioSelecionado);
                 startActivity(avaliacaoPassoDoisActivity);
             }
         });
@@ -69,7 +83,11 @@ public class AvaliacaoPassoUmActivity extends AppCompatActivity {
         btNaoOpinaAvaliacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Não opinou sobre o Convênio.", Toast.LENGTH_SHORT).show();
+                Intent listaConveniosActivity = new Intent(v.getContext(), ListaConveniosActivity.class);
+                listaConveniosActivity.putExtra("convenio", convenioSelecionado);
+                listaConveniosActivity.putExtra("estado", estadoSelecionado);
+                listaConveniosActivity.putExtra("municipio", municipioSelecionado);
+                startActivity(listaConveniosActivity);
             }
         });
     }
@@ -77,6 +95,8 @@ public class AvaliacaoPassoUmActivity extends AppCompatActivity {
     public void abrirTelaPrestacaoContas(View view) {
         Intent prestacaoContasActivity = new Intent(view.getContext(), PrestacaoContasActivity.class);
         prestacaoContasActivity.putExtra("convenio", convenioSelecionado);
+        prestacaoContasActivity.putExtra("estado", estadoSelecionado);
+        prestacaoContasActivity.putExtra("municipio", municipioSelecionado);
         startActivity(prestacaoContasActivity);
     }
 }

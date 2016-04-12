@@ -11,11 +11,15 @@ import android.widget.Toast;
 import java.util.HashMap;
 
 import br.com.adem.iconv.model.Convenio;
+import br.com.adem.iconv.model.Estado;
+import br.com.adem.iconv.model.Municipio;
 
 public class AvaliacaoPassoDoisActivity extends AppCompatActivity {
 
     private Button btConfirmaAvalicao;
     private Convenio convenioSelecionado;
+    private Estado estadoSelecionado;
+    private Municipio municipioSelecionado;
 
     private static HashMap<Integer, String> mapQuestao;
     static {
@@ -32,6 +36,8 @@ public class AvaliacaoPassoDoisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avaliacao_passo_dois);
 
+        estadoSelecionado = (Estado) getIntent().getSerializableExtra("estado");
+        municipioSelecionado = (Municipio) getIntent().getSerializableExtra("municipio");
         convenioSelecionado = (Convenio) getIntent().getSerializableExtra("convenio");
 
         // capturando o botao btConfirmaAvalicao do XML pela ID.
@@ -40,7 +46,12 @@ public class AvaliacaoPassoDoisActivity extends AppCompatActivity {
         btConfirmaAvalicao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Avaliação Confirmada!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "Sua opinião foi registrada!", Toast.LENGTH_SHORT).show();
+                Intent listaConveniosActivity = new Intent(v.getContext(), ListaConveniosActivity.class);
+                listaConveniosActivity.putExtra("convenio", convenioSelecionado);
+                listaConveniosActivity.putExtra("estado", estadoSelecionado);
+                listaConveniosActivity.putExtra("municipio", municipioSelecionado);
+                startActivity(listaConveniosActivity);
             }
         });
     }
@@ -48,6 +59,8 @@ public class AvaliacaoPassoDoisActivity extends AppCompatActivity {
     public void voltarTelaAvaliacaoPassoUm(View view) {
         Intent voltarTelaActivity = new Intent(view.getContext(), AvaliacaoPassoUmActivity.class);
         voltarTelaActivity.putExtra("convenio", convenioSelecionado);
+        voltarTelaActivity.putExtra("estado", estadoSelecionado);
+        voltarTelaActivity.putExtra("municipio", municipioSelecionado);
         startActivity(voltarTelaActivity);
     }
 }
