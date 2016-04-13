@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         Loading().showLoading()
         runAPI()
+        self.navigationController?.navigationItem.title = "iConv"
     }
     
     func runAPI() {

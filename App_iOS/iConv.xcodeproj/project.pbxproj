@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B7A786EEBBA75F3DAF8CCDE /* Pods_iConv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B379EE82FB72DE484F6F4FA /* Pods_iConv.framework */; };
+		D963E65F1CBE718800F082FC /* ListaConveniosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963E65E1CBE718800F082FC /* ListaConveniosCell.swift */; };
+		D963E6621CBE983100F082FC /* ListaPagamentosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963E6611CBE983100F082FC /* ListaPagamentosCell.swift */; };
 		D99FA2741CB542EB0099365F /* estados-cidades.json in Resources */ = {isa = PBXBuildFile; fileRef = D99FA2731CB542EB0099365F /* estados-cidades.json */; };
 		D99FA2781CB5436C0099365F /* ConfController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FA2771CB5436C0099365F /* ConfController.swift */; };
 		D99FA27A1CB546440099365F /* Estado.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FA2791CB546440099365F /* Estado.swift */; };
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		6D7ACC6106D06DB0CDA4828F /* Pods-iConv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iConv/Pods-iConv.debug.xcconfig"; sourceTree = "<group>"; };
 		7B379EE82FB72DE484F6F4FA /* Pods_iConv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iConv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D963E65E1CBE718800F082FC /* ListaConveniosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaConveniosCell.swift; sourceTree = "<group>"; };
+		D963E6611CBE983100F082FC /* ListaPagamentosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaPagamentosCell.swift; sourceTree = "<group>"; };
 		D99FA2731CB542EB0099365F /* estados-cidades.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "estados-cidades.json"; sourceTree = "<group>"; };
 		D99FA2771CB5436C0099365F /* ConfController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfController.swift; sourceTree = "<group>"; };
 		D99FA2791CB546440099365F /* Estado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Estado.swift; sourceTree = "<group>"; };
@@ -125,6 +129,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D963E65D1CBE717600F082FC /* ListaConvenios */ = {
+			isa = PBXGroup;
+			children = (
+				D99FA2921CB6C3D20099365F /* ListaConvenios.swift */,
+				D963E65E1CBE718800F082FC /* ListaConveniosCell.swift */,
+			);
+			name = ListaConvenios;
+			sourceTree = "<group>";
+		};
+		D963E6601CBE981E00F082FC /* ListaPagamentos */ = {
+			isa = PBXGroup;
+			children = (
+				D99FA2981CB6C5280099365F /* ListaPagamentos.swift */,
+				D963E6611CBE983100F082FC /* ListaPagamentosCell.swift */,
+			);
+			name = ListaPagamentos;
+			sourceTree = "<group>";
+		};
 		D99FA2721CB542DE0099365F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +203,8 @@
 		D9EC17DE1CB53483007A8EDE /* iConv */ = {
 			isa = PBXGroup;
 			children = (
+				D963E6601CBE981E00F082FC /* ListaPagamentos */,
+				D963E65D1CBE717600F082FC /* ListaConvenios */,
 				D99FA2881CB608570099365F /* Utils */,
 				D99FA27B1CB54A320099365F /* Model */,
 				D99FA2721CB542DE0099365F /* Supporting Files */,
@@ -191,10 +215,8 @@
 				D9EC17E61CB53483007A8EDE /* Assets.xcassets */,
 				D9EC17E81CB53483007A8EDE /* LaunchScreen.storyboard */,
 				D9EC17EB1CB53483007A8EDE /* Info.plist */,
-				D99FA2921CB6C3D20099365F /* ListaConvenios.swift */,
 				D99FA2941CB6C4240099365F /* HomeScreen.swift */,
 				D99FA2961CB6C4EE0099365F /* DetailConvenio.swift */,
-				D99FA2981CB6C5280099365F /* ListaPagamentos.swift */,
 			);
 			path = iConv;
 			sourceTree = "<group>";
@@ -403,10 +425,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D963E6621CBE983100F082FC /* ListaPagamentosCell.swift in Sources */,
 				D99FA2931CB6C3D20099365F /* ListaConvenios.swift in Sources */,
 				D99FA2971CB6C4EE0099365F /* DetailConvenio.swift in Sources */,
 				D99FA27F1CB54E710099365F /* APIManager.swift in Sources */,
 				D99FA2851CB576900099365F /* APIMetadados.swift in Sources */,
+				D963E65F1CBE718800F082FC /* ListaConveniosCell.swift in Sources */,
 				D99FA2871CB583B90099365F /* Loading.swift in Sources */,
 				D9EC17E21CB53483007A8EDE /* ViewController.swift in Sources */,
 				D99FA2991CB6C5280099365F /* ListaPagamentos.swift in Sources */,

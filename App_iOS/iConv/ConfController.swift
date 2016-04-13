@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import SwiftyJSON
+//import SwiftyJSON
 
 class ConfController: UITableViewController{
     
@@ -19,7 +19,7 @@ class ConfController: UITableViewController{
     @IBOutlet weak var estadoText: UITextField!
     @IBOutlet weak var estadoPicker: UIPickerView!
     @IBOutlet weak var cidadePicker: UIPickerView!
-    
+    var buttonGoverno = false
     var selectedEstado = "AC"
     var test = [Municipio]()
     
@@ -45,61 +45,56 @@ class ConfController: UITableViewController{
         estadoPicker.showsSelectionIndicator = true     
         
     }
-
     
-    @IBAction func federalButton(sender: CheckboxButton) {
-        let state = sender.on ? "ON" : "OFF"
-        
-        print("CheckboxButton: did turn \(state)")
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
     }
+
     
     @IBAction func estadualButton(sender: CheckboxButton) {
         let state = sender.on ? "ON" : "OFF"
-        
-        print("CheckboxButton: did turn \(state)")
+        if state == "ON"{
+            buttonGoverno = true
+            tableView.reloadData()
+        }
+        if state == "OFF"{
+            buttonGoverno = false
+            tableView.reloadData()
+        }
+       // print("CheckboxButton: did turn \(state)")
     }
     
-    @IBAction func municipalButton(sender: CheckboxButton) {
+    @IBAction func prefeituraButton(sender: CheckboxButton) {
         let state = sender.on ? "ON" : "OFF"
-        
-        print("CheckboxButton: did turn \(state)")
-    }
-    
-    @IBAction func privadaButton(sender: CheckboxButton) {
-        let state = sender.on ? "ON" : "OFF"
-        
-        print("CheckboxButton: did turn \(state)")
-    }
-    
-    @IBAction func encerradoButton(sender: CheckboxButton) {
-        let state = sender.on ? "ON" : "OFF"
-        
-        print("CheckboxButton: did turn \(state)")
-    }
-    
-    @IBAction func execucaoButton(sender: CheckboxButton) {
-        let state = sender.on ? "ON" : "OFF"
-        
-        print("CheckboxButton: did turn \(state)")
+        if state == "ON"{
+            buttonGoverno = false
+            tableView.reloadData()
+        }
+        if state == "OFF"{
+            buttonGoverno = true
+            tableView.reloadData()
+        }
+       // print("CheckboxButton: did turn \(state)")
     }
     
     func cidade(){
-       print(data)
+      // print(data)
         
-        for item in data{
-            if let test = item[estados[i]] {
-               print(estados[i])
-               print(test.count)
-               print("")
-               
-            }
-            i = i + 1
-        }
+//        for item in data{
+//            if let test = item[estados[i]] {
+//               print(estados[i])
+//               print(test.count)
+//               print("")
+//               
+//            }
+//            i = i + 1
+//        }
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         if textField.placeholder == "Estado"{
-        toggleDatepicker(0)
+            toggleDatepicker(0)
         }
         if textField.placeholder == "Cidade"{
             toggleDatepicker(1)
@@ -196,17 +191,28 @@ class ConfController: UITableViewController{
         else if cidadePickerHide && indexPath.section == 2 && indexPath.row == 1{
             return 0
         }
+        
+        else if buttonGoverno && indexPath.section == 2 && indexPath.row == 0{
+            return 0
+        }
             
         else{
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         }
     }
     
+//    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if buttonGoverno && indexPath.section == 2 && indexPath.row == 0{
+//            return 0
+//        }
+//        return UITableViewAutomaticDimension
+//    }
+    
     func toggleDatepicker(toggleHide: Int){
         if(toggleHide == 0){
             estadoPickerHide = !estadoPickerHide
             if(cidadePickerHide == false){
-                cidadePickerHide = true
+               cidadePickerHide = true
             }
         }
         
@@ -221,15 +227,15 @@ class ConfController: UITableViewController{
         tableView.endUpdates()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "segueToMuni"{
-            let DestView : HomeScreen = segue.destinationViewController as! HomeScreen
-            //print(dict)
-            DestView.data = self.selectedMunicipio
-        }
-        
-        
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "segueToMuni"{
+//            let DestView : HomeScreen = segue.destinationViewController as! HomeScreen
+//            //print(dict)
+//            DestView.data = self.selectedMunicipio
+//        }
+//    
+//        
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

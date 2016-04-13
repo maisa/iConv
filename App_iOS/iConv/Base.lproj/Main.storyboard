@@ -39,9 +39,9 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awg-eg-acO">
                                 <rect key="frame" x="20" y="548" width="335" height="45"/>
-                                <color key="backgroundColor" red="0.62239583333333326" green="0.62239583333333326" blue="0.62239583333333326" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Configuracao Inicial"/>
+                                <state key="normal" title="Primeiro Acesso"/>
                                 <connections>
                                     <segue destination="DEm-gg-Lao" kind="show" identifier="segueToConf" id="Pdy-vi-h6O"/>
                                 </connections>
@@ -83,22 +83,74 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
-                            <tableViewSection headerTitle="Section-3" id="62D-GU-pkZ">
+                            <tableViewSection id="62D-GU-pkZ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="121" id="d6n-GJ-eIo">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="121"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="121" id="d6n-GJ-eIo">
+                                        <rect key="frame" x="0.0" y="64" width="375" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d6n-GJ-eIo" id="BPx-cG-l6r">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escolha o Estado e Cidade que deseja" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNb-Vn-gbW">
-                                                    <rect key="frame" x="19" y="17" width="339" height="82"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Convênio Firmado com:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2U1-Nn-Jos">
+                                                    <rect key="frame" x="22" y="11" width="181" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2r-bG-3XY">
+                                                    <rect key="frame" x="70" y="39" width="121" height="30"/>
+                                                    <state key="normal" title="Governo Estadual"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYX-pr-rhd">
+                                                    <rect key="frame" x="248" y="40" width="66" height="30"/>
+                                                    <state key="normal" title="Municipal"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBZ-zi-u0D">
+                                                    <rect key="frame" x="248" y="78" width="52" height="30"/>
+                                                    <state key="normal" title="Privada"/>
+                                                </button>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j0L-Pw-m0M" customClass="CheckboxButton" customModule="iConv" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="39" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="estadualButton:" destination="DEm-gg-Lao" eventType="valueChanged" id="NSi-V9-dry"/>
+                                                    </connections>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zng-nv-fWA" customClass="CheckboxButton" customModule="iConv" customModuleProvider="target">
+                                                    <rect key="frame" x="210" y="77" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="privadaButton:" destination="DEm-gg-Lao" eventType="valueChanged" id="H4f-gh-J0I"/>
+                                                    </connections>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dq3-9H-jK0" customClass="CheckboxButton" customModule="iConv" customModuleProvider="target">
+                                                    <rect key="frame" x="210" y="39" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="municipalButton:" destination="DEm-gg-Lao" eventType="valueChanged" id="869-fx-dxw"/>
+                                                    </connections>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bn6-X2-fm6" customClass="CheckboxButton" customModule="iConv" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="78" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="prefeituraButton:" destination="DEm-gg-Lao" eventType="valueChanged" id="RDJ-zV-MXu"/>
+                                                    </connections>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-4Z-FnS">
+                                                    <rect key="frame" x="70" y="78" width="67" height="30"/>
+                                                    <state key="normal" title="Prefeitura"/>
+                                                </button>
                                             </subviews>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="jYX-pr-rhd"/>
+                                                    <exclude reference="TBZ-zi-u0D"/>
+                                                    <exclude reference="zng-nv-fWA"/>
+                                                    <exclude reference="Dq3-9H-jK0"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -106,7 +158,7 @@
                             <tableViewSection id="tga-Rg-1fK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="48" id="tDe-8g-gHx">
-                                        <rect key="frame" x="0.0" y="213" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="185" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tDe-8g-gHx" id="mQh-Q0-zN1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
@@ -130,7 +182,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="187" id="tQj-Q7-sWp">
-                                        <rect key="frame" x="0.0" y="261" width="375" height="187"/>
+                                        <rect key="frame" x="0.0" y="233" width="375" height="187"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tQj-Q7-sWp" id="PBX-d6-eh8">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
@@ -168,7 +220,7 @@
                             <tableViewSection id="DDy-Hs-JfM">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="bvE-zf-KY9">
-                                        <rect key="frame" x="0.0" y="448" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="420" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bvE-zf-KY9" id="xmu-48-H7w">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -192,7 +244,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="218" id="L56-5E-MXv">
-                                        <rect key="frame" x="0.0" y="492" width="375" height="218"/>
+                                        <rect key="frame" x="0.0" y="464" width="375" height="218"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L56-5E-MXv" id="Rvo-Xa-fDC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
@@ -229,110 +281,22 @@
                             <tableViewSection id="29M-4I-S0M">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="121" id="ncG-Hz-G5b">
-                                        <rect key="frame" x="0.0" y="710" width="375" height="121"/>
+                                        <rect key="frame" x="0.0" y="682" width="375" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ncG-Hz-G5b" id="gCx-RG-8uY">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Natureza do Convenente:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2U1-Nn-Jos">
-                                                    <rect key="frame" x="8" y="8" width="195" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2r-bG-3XY">
-                                                    <rect key="frame" x="70" y="36" width="52" height="30"/>
-                                                    <state key="normal" title="Federal"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYX-pr-rhd">
-                                                    <rect key="frame" x="248" y="37" width="66" height="30"/>
-                                                    <state key="normal" title="Municipal"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBZ-zi-u0D">
-                                                    <rect key="frame" x="248" y="75" width="52" height="30"/>
-                                                    <state key="normal" title="Privada"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-4Z-FnS">
-                                                    <rect key="frame" x="70" y="74" width="59" height="30"/>
-                                                    <state key="normal" title="Estadual"/>
-                                                </button>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j0L-Pw-m0M" customClass="CheckboxButton" customModule="iConv" customModuleProvider="target">
-                                                    <rect key="frame" x="18" y="36" width="30" height="30"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <connections>
-                                                        <action selector="federalButton:" destination="DEm-gg-Lao" eventType="valueChanged" id="VXV-w4-mRl"/>
-                                                    </connections>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zng-nv-fWA" customClass="CheckboxButton" customModule="iConv" customModuleProvider="target">
-                                                    <rect key="frame" x="210" y="74" width="30" height="30"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <connections>
-                                                        <action selector="privadaButton:" destination="DEm-gg-Lao" eventType="valueChanged" id="H4f-gh-J0I"/>
-                                                    </connections>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dq3-9H-jK0" customClass="CheckboxButton" customModule="iConv" customModuleProvider="target">
-                                                    <rect key="frame" x="210" y="36" width="30" height="30"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <connections>
-                                                        <action selector="municipalButton:" destination="DEm-gg-Lao" eventType="valueChanged" id="869-fx-dxw"/>
-                                                    </connections>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bn6-X2-fm6" customClass="CheckboxButton" customModule="iConv" customModuleProvider="target">
-                                                    <rect key="frame" x="18" y="75" width="30" height="30"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <connections>
-                                                        <action selector="estadualButton:" destination="DEm-gg-Lao" eventType="valueChanged" id="Qo7-EB-IcF"/>
-                                                    </connections>
-                                                </view>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="218" id="Jdq-sU-SPD">
-                                        <rect key="frame" x="0.0" y="831" width="375" height="218"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jdq-sU-SPD" id="GaK-0E-taV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Situação do Convênio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dc1-Fz-G1c">
-                                                    <rect key="frame" x="8" y="8" width="255" height="31"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTM-aE-t9M">
-                                                    <rect key="frame" x="65" y="48" width="71" height="30"/>
-                                                    <state key="normal" title="Encerrado"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6I-7j-eh1">
-                                                    <rect key="frame" x="248" y="47" width="92" height="30"/>
-                                                    <state key="normal" title="Em Execução"/>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRO-Gh-lSb">
-                                                    <rect key="frame" x="144" y="117" width="86" height="35"/>
+                                                    <rect key="frame" x="144" y="42" width="86" height="35"/>
                                                     <color key="backgroundColor" red="0.62239583330000003" green="0.62239583330000003" blue="0.62239583330000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="OK">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="3Xq-id-5KC" kind="show" identifier="segueToMuni" id="Hd4-fs-8oc"/>
+                                                        <segue destination="e68-LX-ybp" kind="show" identifier="segueToMuni" id="tWo-43-3F7"/>
                                                     </connections>
                                                 </button>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uog-9x-9WU" customClass="CheckboxButton" customModule="iConv" customModuleProvider="target">
-                                                    <rect key="frame" x="18" y="47" width="30" height="30"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <connections>
-                                                        <action selector="encerradoButton:" destination="DEm-gg-Lao" eventType="valueChanged" id="NKa-0g-dEE"/>
-                                                    </connections>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gKH-Oa-Xgv" customClass="CheckboxButton" customModule="iConv" customModuleProvider="target">
-                                                    <rect key="frame" x="210" y="47" width="30" height="30"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <connections>
-                                                        <action selector="execucaoButton:" destination="DEm-gg-Lao" eventType="valueChanged" id="4et-24-b0C"/>
-                                                    </connections>
-                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -357,40 +321,6 @@
             </objects>
             <point key="canvasLocation" x="814.5" y="273"/>
         </scene>
-        <!--Home Screen-->
-        <scene sceneID="8c2-b5-RHp">
-            <objects>
-                <viewController id="3Xq-id-5KC" customClass="HomeScreen" customModule="iConv" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Rzs-an-2TJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="2Om-cz-aMS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="90Y-jD-MFa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iConvLogo" translatesAutoresizingMaskIntoConstraints="NO" id="M68-fc-lhW">
-                                <rect key="frame" x="20" y="194" width="335" height="280"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYK-54-Pqd">
-                                <rect key="frame" x="143" y="529" width="89" height="58"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Entrar">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="e68-LX-ybp" kind="show" id="dyC-ad-C89"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0PE-bt-w6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1278.5" y="227.5"/>
-        </scene>
         <!--Lista Convenios-->
         <scene sceneID="I8z-RF-3IX">
             <objects>
@@ -400,7 +330,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wUV-HH-yBP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ihZ-0S-1Uk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhV-9E-C3B">
@@ -421,15 +351,15 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="343" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qx0-Ef-xl0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="367" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qx0-Ef-xl0">
                                 <rect key="frame" x="0.0" y="130" width="375" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="343" id="aet-I6-ucC">
-                                        <rect key="frame" x="0.0" y="1" width="375" height="343"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="367" id="aet-I6-ucC" customClass="ListaConveniosCell" customModule="iConv" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1" width="375" height="367"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aet-I6-ucC" id="5rB-Ft-ffD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="342"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="366"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Convênio No.: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-qZ-w5V">
@@ -517,21 +447,39 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ymJ-v3-tGU">
+                                                    <rect key="frame" x="0.0" y="349" width="375" height="18"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Ro5-33-xJa" kind="show" id="0tD-c6-g88"/>
+                                            <outlet property="aRepassar" destination="2PN-ex-ZyN" id="Vdn-yw-3Cz"/>
+                                            <outlet property="concedente" destination="999-8Z-eUk" id="GR7-TP-KPj"/>
+                                            <outlet property="convenente" destination="p6M-jJ-VeP" id="1Ej-9E-R1G"/>
+                                            <outlet property="nConvenio" destination="MBT-zl-crU" id="ogq-Re-wE3"/>
+                                            <outlet property="objetoResumido" destination="JX1-7n-Nui" id="4ec-Aa-xTv"/>
+                                            <outlet property="vConvenio" destination="dTU-Nx-YY9" id="9he-ik-iKh"/>
+                                            <outlet property="vRepassado" destination="BAh-Os-tu6" id="Jbd-yQ-CXG"/>
+                                            <segue destination="Ro5-33-xJa" kind="show" identifier="DetailView" id="0tD-c6-g88"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="e68-LX-ybp" id="dOR-Eh-mtO"/>
+                                    <outlet property="delegate" destination="e68-LX-ybp" id="hlv-h6-RPa"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="listaConvenios" destination="Qx0-Ef-xl0" id="lRE-NP-3dR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ktj-wE-hwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1774.5" y="227.5"/>
+            <point key="canvasLocation" x="1461.5" y="199"/>
         </scene>
         <!--Detail Convenio-->
         <scene sceneID="aBR-gv-DSX">
@@ -542,7 +490,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zST-Vj-bUt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="imy-Le-0Op">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2T9-gi-f3c">
@@ -649,7 +597,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4yk-VB-ep4" kind="show" id="XjY-ZB-fKx"/>
+                                    <segue destination="4yk-VB-ep4" kind="show" identifier="pagamentos" id="XjY-ZB-fKx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Você aprova este Convênio?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXY-5f-B5v">
@@ -685,6 +633,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="Concedente" destination="TqX-Ga-Pq9" id="csN-nz-jPd"/>
+                        <outlet property="Convenente" destination="wd2-Xw-82C" id="YJS-iy-ChD"/>
+                        <outlet property="aRepassar" destination="2Yo-E7-kCs" id="TdL-DJ-nXP"/>
+                        <outlet property="nConvenio" destination="DpJ-7Y-vVf" id="hSZ-Cl-Vma"/>
+                        <outlet property="objetoResumido" destination="1pS-QJ-Vws" id="kR8-f1-3kR"/>
+                        <outlet property="valorConvenio" destination="Hor-AZ-oab" id="Q14-Sz-Ewz"/>
+                        <outlet property="valorRepassado" destination="KUD-qV-vu5" id="bcs-jH-3Hr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZpL-FV-Z95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -699,7 +656,7 @@
                         <viewControllerLayoutGuide type="bottom" id="7Yb-eU-D6D"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gNR-3h-mnd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11S-HG-uOk">
@@ -796,16 +753,16 @@
             </objects>
             <point key="canvasLocation" x="2341.5" y="983.5"/>
         </scene>
-        <!--Lista Convenios-->
+        <!--Lista Pagamentos-->
         <scene sceneID="cxs-bI-pfD">
             <objects>
-                <viewController id="4yk-VB-ep4" customClass="ListaConvenios" customModule="iConv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4yk-VB-ep4" customClass="ListaPagamentos" customModule="iConv" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qf0-Mq-2tR"/>
                         <viewControllerLayoutGuide type="bottom" id="QXk-K9-8JJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gkP-jm-BGm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mE1-fg-Sh9">
@@ -820,15 +777,15 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="191" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tno-hm-6Cz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="216" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tno-hm-6Cz">
                                 <rect key="frame" x="0.0" y="121" width="375" height="546"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="191" id="YRt-X0-9qF">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="191"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="216" id="YRt-X0-9qF" customClass="ListaPagamentosCell" customModule="iConv" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YRt-X0-9qF" id="71C-5S-eyd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpT-9B-z1G">
@@ -891,10 +848,25 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xc6-KH-xAC">
+                                                    <rect key="frame" x="0.0" y="192" width="375" height="23"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cnpj" destination="QnU-gb-IYO" id="G1N-io-71P"/>
+                                            <outlet property="data" destination="2mj-QW-dZY" id="F74-wI-BIR"/>
+                                            <outlet property="fornecedor" destination="fMU-2v-WBa" id="Hxf-wi-sX9"/>
+                                            <outlet property="notaFiscal" destination="Sc1-Vy-qPM" id="fJP-71-rkm"/>
+                                            <outlet property="valor" destination="erN-zL-1GA" id="iKY-ZI-HVg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4yk-VB-ep4" id="a1J-ig-feV"/>
+                                    <outlet property="delegate" destination="4yk-VB-ep4" id="bSt-4K-Q2E"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -902,10 +874,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAZ-TF-8yd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2792.5" y="-40.5"/>
+            <point key="canvasLocation" x="2792.5" y="-41"/>
         </scene>
     </scenes>
     <resources>
-        <image name="iConvLogo" width="875" height="266"/>
+        <image name="iConvLogo" width="898" height="273"/>
     </resources>
 </document>
