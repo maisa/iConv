@@ -1,0 +1,6 @@
+framework module Pods_iConv {
+  umbrella header "Pods-iConv-umbrella.h"
+
+  export *
+  module * { export * }
+}
