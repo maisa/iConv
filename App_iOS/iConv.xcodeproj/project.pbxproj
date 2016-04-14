@@ -10,6 +10,7 @@
 		3B7A786EEBBA75F3DAF8CCDE /* Pods_iConv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B379EE82FB72DE484F6F4FA /* Pods_iConv.framework */; };
 		D963E65F1CBE718800F082FC /* ListaConveniosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963E65E1CBE718800F082FC /* ListaConveniosCell.swift */; };
 		D963E6621CBE983100F082FC /* ListaPagamentosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963E6611CBE983100F082FC /* ListaPagamentosCell.swift */; };
+		D963E6641CBF100A00F082FC /* AprovaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963E6631CBF100A00F082FC /* AprovaController.swift */; };
 		D99FA2741CB542EB0099365F /* estados-cidades.json in Resources */ = {isa = PBXBuildFile; fileRef = D99FA2731CB542EB0099365F /* estados-cidades.json */; };
 		D99FA2781CB5436C0099365F /* ConfController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FA2771CB5436C0099365F /* ConfController.swift */; };
 		D99FA27A1CB546440099365F /* Estado.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FA2791CB546440099365F /* Estado.swift */; };
@@ -55,6 +56,7 @@
 		7B379EE82FB72DE484F6F4FA /* Pods_iConv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iConv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D963E65E1CBE718800F082FC /* ListaConveniosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaConveniosCell.swift; sourceTree = "<group>"; };
 		D963E6611CBE983100F082FC /* ListaPagamentosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaPagamentosCell.swift; sourceTree = "<group>"; };
+		D963E6631CBF100A00F082FC /* AprovaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AprovaController.swift; sourceTree = "<group>"; };
 		D99FA2731CB542EB0099365F /* estados-cidades.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "estados-cidades.json"; sourceTree = "<group>"; };
 		D99FA2771CB5436C0099365F /* ConfController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfController.swift; sourceTree = "<group>"; };
 		D99FA2791CB546440099365F /* Estado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Estado.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				D9EC17EB1CB53483007A8EDE /* Info.plist */,
 				D99FA2941CB6C4240099365F /* HomeScreen.swift */,
 				D99FA2961CB6C4EE0099365F /* DetailConvenio.swift */,
+				D963E6631CBF100A00F082FC /* AprovaController.swift */,
 			);
 			path = iConv;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				D99FA27F1CB54E710099365F /* APIManager.swift in Sources */,
 				D99FA2851CB576900099365F /* APIMetadados.swift in Sources */,
 				D963E65F1CBE718800F082FC /* ListaConveniosCell.swift in Sources */,
+				D963E6641CBF100A00F082FC /* AprovaController.swift in Sources */,
 				D99FA2871CB583B90099365F /* Loading.swift in Sources */,
 				D9EC17E21CB53483007A8EDE /* ViewController.swift in Sources */,
 				D99FA2991CB6C5280099365F /* ListaPagamentos.swift in Sources */,
@@ -586,10 +590,13 @@
 			baseConfigurationReference = 6D7ACC6106D06DB0CDA4828F /* Pods-iConv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iConv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.iConv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -598,10 +605,13 @@
 			baseConfigurationReference = E498FF2E11BE920A1C0AAEF5 /* Pods-iConv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iConv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.iConv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

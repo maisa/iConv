@@ -30,6 +30,16 @@ class DetailConvenio: UIViewController{
     var svalorConvenio = ""
     var svalorRepassado = ""
 
+    @IBAction func naoConcorda(sender: UIButton) {
+        let alertController = UIAlertController(title: "Obrigado!", message:
+            "Sua opinião foi salva!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Ok!", style: UIAlertActionStyle.Default,handler:{ action in
+            self.navigationController?.popViewControllerAnimated(true)
+            }
+            ))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         nConvenio.text = snConvenio

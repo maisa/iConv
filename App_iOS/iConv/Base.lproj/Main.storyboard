@@ -321,10 +321,10 @@
             </objects>
             <point key="canvasLocation" x="814.5" y="273"/>
         </scene>
-        <!--Lista Convenios-->
+        <!--iConv-->
         <scene sceneID="I8z-RF-3IX">
             <objects>
-                <viewController id="e68-LX-ybp" customClass="ListaConvenios" customModule="iConv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="lista" id="e68-LX-ybp" customClass="ListaConvenios" customModule="iConv" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ie0-ZT-HiX"/>
                         <viewControllerLayoutGuide type="bottom" id="wUV-HH-yBP"/>
@@ -424,8 +424,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="999-8Z-eUk">
-                                                    <rect key="frame" x="119" y="37" width="248" height="64"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <rect key="frame" x="119" y="37" width="187" height="64"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -442,7 +442,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="111928193" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBT-zl-crU">
-                                                    <rect key="frame" x="135" y="8" width="232" height="21"/>
+                                                    <rect key="frame" x="135" y="8" width="171" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -451,6 +451,9 @@
                                                     <rect key="frame" x="0.0" y="349" width="375" height="18"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_detective" translatesAutoresizingMaskIntoConstraints="NO" id="1gd-li-4h2">
+                                                    <rect key="frame" x="309" y="8" width="58" height="93"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -473,6 +476,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="iConv" id="fCw-Lk-Z1d"/>
                     <connections>
                         <outlet property="listaConvenios" destination="Qx0-Ef-xl0" id="lRE-NP-3dR"/>
                     </connections>
@@ -612,6 +616,9 @@
                                 <state key="normal" title="Sim">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="naoConcorda:" destination="Ro5-33-xJa" eventType="touchUpInside" id="STc-Aa-60S"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bas-Zg-SPM">
                                 <rect key="frame" x="235" y="575" width="95" height="41"/>
@@ -620,7 +627,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aaf-oG-qSl" kind="show" id="lT3-Od-Ki0"/>
+                                    <segue destination="aaf-oG-qSl" kind="show" id="YXC-K6-IO9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNE-SO-rxI">
@@ -629,10 +636,14 @@
                                 <state key="normal" title="Não quero opinar">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="naoConcorda:" destination="Ro5-33-xJa" eventType="touchUpInside" id="fJb-2J-MnM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="Concedente" destination="TqX-Ga-Pq9" id="csN-nz-jPd"/>
                         <outlet property="Convenente" destination="wd2-Xw-82C" id="YJS-iy-ChD"/>
@@ -647,10 +658,10 @@
             </objects>
             <point key="canvasLocation" x="2294.5" y="199.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Aprova Controller-->
         <scene sceneID="aRa-WI-JaM">
             <objects>
-                <viewController id="aaf-oG-qSl" sceneMemberID="viewController">
+                <viewController id="aaf-oG-qSl" customClass="AprovaController" customModule="iConv" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="twO-bb-bJX"/>
                         <viewControllerLayoutGuide type="bottom" id="7Yb-eU-D6D"/>
@@ -707,6 +718,9 @@
                                 <state key="normal" title="Confirma">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirma:" destination="aaf-oG-qSl" eventType="touchUpInside" id="bre-wT-dsW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ZV-bP-HMJ">
                                 <rect key="frame" x="235" y="418" width="95" height="41"/>
@@ -748,10 +762,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3iN-9R-Jit" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2341.5" y="983.5"/>
+            <point key="canvasLocation" x="1890.5" y="847"/>
         </scene>
         <!--Lista Pagamentos-->
         <scene sceneID="cxs-bI-pfD">
@@ -871,13 +886,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAZ-TF-8yd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2792.5" y="-41"/>
+            <point key="canvasLocation" x="3006" y="-29"/>
         </scene>
     </scenes>
     <resources>
         <image name="iConvLogo" width="898" height="273"/>
+        <image name="ic_detective" width="192" height="243"/>
     </resources>
 </document>
