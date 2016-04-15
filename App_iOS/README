@@ -1,8 +1,9 @@
+#App iOS
 Esta é a versão iOS da Aplicação iConv desenvolvida inicialmente apenas para iPhones.
 
-Requerimentos para execuçao do projeto:
-iOS 9.3+ / OS X 10.11+
-Xcode 7.3
+## Requerimentos para execuçao do projeto:
+- iOS 9.3+ / OS X 10.11+
+- Xcode 7.3
 
 Inicialmente é necessário fazer o Download do repositório https://github.com/maisa/iConv.git e entrar na pasta App_iOS/
 Dentro da pasta há um arquivo nomeado iConv.xcworkspace que é o arquivo utilizado para abrir o projeto no Xcode.
