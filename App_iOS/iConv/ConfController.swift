@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import SwiftyJSON
+//import SwiftyJSON
 
 class ConfController: UITableViewController{
     
@@ -29,12 +29,12 @@ class ConfController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let path = NSBundle.mainBundle().pathForResource("estados-cidades", ofType: "json") {
-            if let data = NSData(contentsOfFile: path){
-                let json = JSON(data: data, options: NSJSONReadingOptions.AllowFragments, error: nil)
-                //print("jsonData:\(json)")
-            }
-        }
+//        if let path = NSBundle.mainBundle().pathForResource("estados-cidades", ofType: "json") {
+//            if let data = NSData(contentsOfFile: path){
+//                let json = JSON(data: data, options: NSJSONReadingOptions.AllowFragments, error: nil)
+//                //print("jsonData:\(json)")
+//            }
+//        }
 //        runAPI()
         
 //        gradePicker.dataSource = self
