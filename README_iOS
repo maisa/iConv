@@ -1,0 +1,23 @@
+# App iOS
+Esta é a versão iOS da Aplicação iConv desenvolvida inicialmente apenas para iPhones.
+
+## Requerimentos para execuçao do projeto:
+- iOS 9.3+ / OS X 10.11+
+- Xcode 7.3
+
+Inicialmente é necessário fazer o Download do repositório https://github.com/maisa/iConv.git e entrar na pasta App_iOS/
+Dentro da pasta há um arquivo nomeado iConv.xcworkspace que é o arquivo utilizado para abrir o projeto no Xcode.
+
+Após aberto o Xcode, esperar o projeto ser montado e verificar se existe algum erro de compatibilidade com o Xcode utilizado,
+normalmente este tipo de erro é gerado pelo uso de versões antigas do Xcode.
+
+Para execução do projeto pode ser utilizado o próprio simulador do Xcode ou um iPhone com iOS 9.3, para fazer uso do iPhone é
+necessário utilizar um Apple ID na identifição do projeto e o mesmo Apple ID deve está cadastrado no iPhone utilizado para o
+test, após a instalação é necessário liberar a aplicação no celular nas configurações.
+
+Na aplicação atual está sendo utilizado apenas convênios estáticos já registrados dentro da aplicação, pois o objetivo inicial
+é mostrar a nossa ideal e como ela vai funcionar dentro de uma aplicação. Apenas na primeira tela antes das configurações esta
+sendo utilizado a API do SINCOV, que é chamado quando usuário aperta o botão de configuração inicial. Devido a instabilidade da
+API em relação a transferencia de dados, em alguns momentos o download dos dados é o pouco lento. Os dados que estão sendo baixados
+são as informações de todos os Estados e seus respectivos Municípios, onde se encontra os links necessários para as próximos
+funcinalidades, mas como já foi dito, essa versão inicial é apenas um protótipo e ainda não faz o uso completo da API.
